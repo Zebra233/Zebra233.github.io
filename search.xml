@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[[渗透学习]1.了解渗透测试]]></title>
+    <url>%2F2019%2F08%2F03%2F%E6%B8%97%E9%80%8F%E5%AD%A6%E4%B9%A0-1-%E4%BA%86%E8%A7%A3%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%2F</url>
+    <content type="text"><![CDATA[渗透和Metasploit的基本知识 一.初识渗透 1.渗透基本知识 1.1.渗透分类 黑盒测试 白盒测试 灰盒测试 1.2.渗透测试方法 OSSTMM NIST OWASP WASC-TC PTES 1.3.渗透测试过程 前期交互阶段 情报搜集阶段 威胁建模阶段 漏洞分析阶段 渗透攻击阶段 后渗透攻击阶段 2.漏洞基本知识 2.1.漏洞生命周期 2.2.漏洞披露方式 完全公开披露 负责任的公开披露 地下经济链 小范围利用直至被披露 2.3.漏洞公共资源库 Exploit-db VULHUB 3.Metasploit 包括了: 辅助模块 渗透攻击模块 攻击载荷模块 空指令模块 编码器模块 3.1.安装Metasploit Kali自带Metasploit msfgui msfconsole msfcli(命令行程序) 用msfconsole -x代替 示例: 123456789echo &quot;请输入目标IP&quot;read ipmsfconsole -x &quot;use exploit/windows/smb/ms08_067_netapi;set RHOST $ip;set target 10;exploit&quot; 参考书籍:Metasploit渗透测试魔鬼训练营]]></content>
+      <categories>
+        <category>渗透学习</category>
+      </categories>
+      <tags>
+        <tag>学习</tag>
+        <tag>渗透</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Hello World]]></title>
     <url>%2F2019%2F08%2F03%2Fhello-world%2F</url>
     <content type="text"><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick Start Create a new post 1$ hexo new "My New Post" More info: Writing Run server 1$ hexo server More info: Server Generate static files 1$ hexo generate More info: Generating Deploy to remote sites 1$ hexo deploy More info: Deployment]]></content>
