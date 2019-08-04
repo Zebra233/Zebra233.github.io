@@ -1,0 +1,1217 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="通过情信息搜集工作,确定渗透测试目标范围 通过情报信息搜集,发现渗透目标的安全漏洞与脆弱点,为后续的渗透攻击提供基础">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[渗透学习]4.情报搜集">
+<meta property="og:url" content="https://zebra233.github.io/2019/08/04/渗透学习-4-情报搜集/index.html">
+<meta property="og:site_name" content="Zebra">
+<meta property="og:description" content="通过情信息搜集工作,确定渗透测试目标范围 通过情报信息搜集,发现渗透目标的安全漏洞与脆弱点,为后续的渗透攻击提供基础">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://zebra233.github.io/images/%E6%B8%97%E9%80%8F%E5%AD%A6%E4%B9%A0-4-%E6%83%85%E6%8A%A5%E6%90%9C%E9%9B%86/tasks.png">
+<meta property="og:image" content="https://zebra233.github.io/images/%E6%B8%97%E9%80%8F%E5%AD%A6%E4%B9%A0-4-%E6%83%85%E6%8A%A5%E6%90%9C%E9%9B%86/result.png">
+<meta property="og:updated_time" content="2019-08-04T08:59:09.207Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="[渗透学习]4.情报搜集">
+<meta name="twitter:description" content="通过情信息搜集工作,确定渗透测试目标范围 通过情报信息搜集,发现渗透目标的安全漏洞与脆弱点,为后续的渗透攻击提供基础">
+<meta name="twitter:image" content="https://zebra233.github.io/images/%E6%B8%97%E9%80%8F%E5%AD%A6%E4%B9%A0-4-%E6%83%85%E6%8A%A5%E6%90%9C%E9%9B%86/tasks.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"right","display":"hide","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://zebra233.github.io/2019/08/04/渗透学习-4-情报搜集/">
+
+
+
+
+
+  <title>[渗透学习]4.情报搜集 | Zebra</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Zebra</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zebra233.github.io/2019/08/04/渗透学习-4-情报搜集/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="K">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zebra">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">[渗透学习]4.情报搜集</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-04T15:17:05+08:00">
+                2019-08-04
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2019-08-04T16:59:09+08:00">
+                2019-08-04
+              </time>
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/08/04/渗透学习-4-情报搜集/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/08/04/渗透学习-4-情报搜集/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <ol>
+<li>通过情信息搜集工作,确定渗透测试目标范围</li>
+<li>通过情报信息搜集,发现渗透目标的安全漏洞与脆弱点,为后续的渗透攻击提供基础</li>
+</ol>
+<a id="more"></a>
+<h1>情报搜集技术</h1>
+<h2 id="1-外围信息搜集">1.外围信息搜集</h2>
+<h3 id="1-1-通过dns和ip">1.1.通过DNS和IP</h3>
+<ul>
+<li>whois</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">$ whois sina.com</span><br><span class="line">   Domain Name: SINA.COM</span><br><span class="line">   Registry Domain ID: 2243615_DOMAIN_COM-VRSN</span><br><span class="line">   Registrar WHOIS Server: whois.paycenter.com.cn</span><br><span class="line">   Registrar URL: http://www.xinnet.com</span><br><span class="line">   Updated Date: 2018-12-20T09:17:25Z</span><br><span class="line">   Creation Date: 1998-09-16T04:00:00Z</span><br><span class="line">   Registry Expiry Date: 2021-09-15T04:00:00Z</span><br><span class="line">   Registrar: Xin Net Technology Corporation</span><br><span class="line">   Registrar IANA ID: 120</span><br><span class="line">   Registrar Abuse Contact Email: supervision@xinnet.com</span><br><span class="line">   Registrar Abuse Contact Phone: +86.1087127926</span><br><span class="line">   Domain Status: serverDeleteProhibited https://icann.org/epp#serverDeleteProhibited</span><br><span class="line">   Domain Status: serverTransferProhibited https://icann.org/epp#serverTransferProhibited</span><br><span class="line">   Domain Status: serverUpdateProhibited https://icann.org/epp#serverUpdateProhibited</span><br><span class="line">   Name Server: NS1.SINA.COM</span><br><span class="line">   Name Server: NS1.SINA.COM.CN</span><br><span class="line">   Name Server: NS2.SINA.COM</span><br><span class="line">   Name Server: NS2.SINA.COM.CN</span><br><span class="line">   Name Server: NS3.SINA.COM</span><br><span class="line">   Name Server: NS3.SINA.COM.CN</span><br><span class="line">   Name Server: NS4.SINA.COM</span><br><span class="line">   DNSSEC: unsigned</span><br><span class="line">   URL of the ICANN Whois Inaccuracy Complaint Form: https://www.icann.org/wicf/</span><br><span class="line">&gt;&gt;&gt; Last update of whois database: 2019-08-04T07:30:28Z &lt;&lt;&lt;</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<ul>
+<li>nslookup</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$ nslookup</span><br><span class="line">&gt; set type=A</span><br><span class="line">&gt; sina.com</span><br><span class="line">Server:		10.10.10.2</span><br><span class="line">Address:	10.10.10.2#53</span><br><span class="line"></span><br><span class="line">Non-authoritative answer:</span><br><span class="line">Name:	sina.com</span><br><span class="line">Address: 111.0.93.239</span><br><span class="line">&gt; exit</span><br></pre></td></tr></table></figure>
+<ul>
+<li>dig</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">$ dig @8.8.8.8 sina.com</span><br><span class="line"></span><br><span class="line">; &lt;&lt;&gt;&gt; DiG 9.11.5-P4-5.1-Debian &lt;&lt;&gt;&gt; @8.8.8.8 sina.com</span><br><span class="line">; (1 server found)</span><br><span class="line">;; global options: +cmd</span><br><span class="line">;; Got answer:</span><br><span class="line">;; -&gt;&gt;HEADER&lt;&lt;- opcode: QUERY, status: NOERROR, id: 19416</span><br><span class="line">;; flags: qr aa rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1</span><br><span class="line"></span><br><span class="line">;; OPT PSEUDOSECTION:</span><br><span class="line">; EDNS: version: 0, flags:; udp: 4096</span><br><span class="line">;; QUESTION SECTION:</span><br><span class="line">;sina.com.			IN	A</span><br><span class="line"></span><br><span class="line">;; ANSWER SECTION:</span><br><span class="line">sina.com.		600	IN	A	111.0.93.239</span><br><span class="line"></span><br><span class="line">;; Query time: 12 msec</span><br><span class="line">;; SERVER: 8.8.8.8#53(8.8.8.8)</span><br><span class="line">;; WHEN: 日 8月 04 15:36:01 CST 2019</span><br><span class="line">;; MSG SIZE  rcvd: 53</span><br></pre></td></tr></table></figure>
+<ul>
+<li>
+<p>IP地理位置查询
+1.<a href="http://ip.tool.chinaz.com/" target="_blank" rel="noopener">站长之家</a>
+2.<a href="https://www.maxmind.com/en/geoip2-precision-demo" target="_blank" rel="noopener">GeoIP2</a></p>
+</li>
+<li>
+<p>netcraft信息查询服务
+<a href="https://searchdns.netcraft.com/" target="_blank" rel="noopener">netcraft</a></p>
+</li>
+<li>
+<p>反查域名
+<a href="http://stool.chinaz.com/same" target="_blank" rel="noopener">站长之家同IP网站查询</a></p>
+</li>
+</ul>
+<h3 id="1-2-搜索引擎">1.2.搜索引擎</h3>
+<ul>
+<li><a href="https://www.exploit-db.com/" target="_blank" rel="noopener">Google Hacking(GHDB)</a></li>
+<li>SiteDigger</li>
+<li>Search Diggity</li>
+<li>ghh(<a href="http://ghh.sourceforge.net/" target="_blank" rel="noopener">http://ghh.sourceforge.net/</a>)</li>
+</ul>
+<h2 id="2-主机探测与端口扫描">2.主机探测与端口扫描</h2>
+<h3 id="2-1-寻找活跃主机">2.1.寻找活跃主机</h3>
+<ul>
+<li>ping</li>
+<li>Metasploit的主机发现模块</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">msf5 &gt; search scanner/discovery</span><br><span class="line"></span><br><span class="line">Matching Modules</span><br><span class="line">================</span><br><span class="line"></span><br><span class="line">   #  Name                                                            Disclosure Date  Rank    Check  Description</span><br><span class="line">   -  ----                                                            ---------------  ----    -----  -----------</span><br><span class="line">   0  auxiliary/scanner/discovery/arp_sweep                                            normal  Yes    ARP Sweep Local Network Discovery</span><br><span class="line">   1  auxiliary/scanner/discovery/empty_udp                                            normal  Yes    UDP Empty Prober</span><br><span class="line">   2  auxiliary/scanner/discovery/ipv6_multicast_ping                                  normal  No     IPv6 Link Local/Node Local Ping Discovery</span><br><span class="line">   3  auxiliary/scanner/discovery/ipv6_neighbor                                        normal  Yes    IPv6 Local Neighbor Discovery</span><br><span class="line">   4  auxiliary/scanner/discovery/ipv6_neighbor_router_advertisement                   normal  No     IPv6 Local Neighbor Discovery Using Router Advertisement</span><br><span class="line">   5  auxiliary/scanner/discovery/udp_probe                                            normal  Yes    UDP Service Prober</span><br><span class="line">   6  auxiliary/scanner/discovery/udp_sweep                                            normal  Yes    UDP Service Sweeper</span><br></pre></td></tr></table></figure>
+<ul>
+<li>nmap</li>
+</ul>
+<h3 id="2-2-操作系统识别">2.2.操作系统识别</h3>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">msf5 &gt; nmap -O 10.10.10.130</span><br><span class="line">[*] exec: nmap -O 10.10.10.130</span><br><span class="line"></span><br><span class="line">Starting Nmap 7.70 ( https://nmap.org ) at 2019-08-04 15:59 CST</span><br><span class="line">Nmap scan report for service.dvssc.com (10.10.10.130)</span><br><span class="line">Host is up (0.00078s latency).</span><br><span class="line">Not shown: 985 closed ports</span><br><span class="line">PORT     STATE SERVICE</span><br><span class="line">21/tcp   open  ftp</span><br><span class="line">80/tcp   open  http</span><br><span class="line">135/tcp  open  msrpc</span><br><span class="line">139/tcp  open  netbios-ssn</span><br><span class="line">445/tcp  open  microsoft-ds</span><br><span class="line">777/tcp  open  multiling-http</span><br><span class="line">1025/tcp open  NFS-or-IIS</span><br><span class="line">1026/tcp open  LSA-or-nterm</span><br><span class="line">1027/tcp open  IIS</span><br><span class="line">1031/tcp open  iad2</span><br><span class="line">1521/tcp open  oracle</span><br><span class="line">6002/tcp open  X11:2</span><br><span class="line">7001/tcp open  afs3-callback</span><br><span class="line">7002/tcp open  afs3-prserver</span><br><span class="line">8099/tcp open  unknown</span><br><span class="line">MAC Address: 00:0C:29:68:2B:56 (VMware)</span><br><span class="line">Device type: general purpose</span><br><span class="line">Running: Microsoft Windows XP|2003</span><br><span class="line">OS CPE: cpe:/o:microsoft:windows_xp::sp2:professional cpe:/o:microsoft:windows_server_2003</span><br><span class="line">OS details: Microsoft Windows XP Professional SP2 or Windows Server 2003</span><br><span class="line">Network Distance: 1 hop</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<h3 id="2-3-端口扫描">2.3.端口扫描</h3>
+<ul>
+<li>Metasploit中的端口扫描器</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">msf5 &gt; search portscan</span><br><span class="line"></span><br><span class="line">Matching Modules</span><br><span class="line">================</span><br><span class="line"></span><br><span class="line">   #  Name                                              Disclosure Date  Rank    Check  Description</span><br><span class="line">   -  ----                                              ---------------  ----    -----  -----------</span><br><span class="line">   0  auxiliary/scanner/http/wordpress_pingback_access                   normal  Yes    Wordpress Pingback Locator</span><br><span class="line">   1  auxiliary/scanner/natpmp/natpmp_portscan                           normal  Yes    NAT-PMP External Port Scanner</span><br><span class="line">   2  auxiliary/scanner/portscan/ack                                     normal  Yes    TCP ACK Firewall Scanner</span><br><span class="line">   3  auxiliary/scanner/portscan/ftpbounce                               normal  Yes    FTP Bounce Port Scanner</span><br><span class="line">   4  auxiliary/scanner/portscan/syn                                     normal  Yes    TCP SYN Port Scanner</span><br><span class="line">   5  auxiliary/scanner/portscan/tcp                                     normal  Yes    TCP Port Scanner</span><br><span class="line">   6  auxiliary/scanner/portscan/xmas                                    normal  Yes    TCP &quot;XMas&quot; Port Scanner</span><br><span class="line">   7  auxiliary/scanner/sap/sap_router_portscanner                       normal  No     SAPRouter Port Scanner</span><br></pre></td></tr></table></figure>
+<ul>
+<li>nmap</li>
+</ul>
+<h3 id="2-4-探测结果分析">2.4.探测结果分析</h3>
+<p><a href="https://zhuanlan.zhihu.com/p/45701831" target="_blank" rel="noopener">结果分析</a></p>
+<h2 id="3-服务扫描与查点">3.服务扫描与查点</h2>
+<h3 id="3-1网络服务扫描">3.1网络服务扫描</h3>
+<ul>
+<li>Telnet扫描<br>
+辅助模块:auxiliary/scanner/telnet/telnet_version</li>
+<li>SSH扫描<br>
+辅助模块:auxiliary/scanner/ssh/ssh_version</li>
+<li>Oracle数据库服务查点<br>
+辅助模块:auxiliary/scanner/oracle/tnslsnr_version</li>
+<li>代理<br>
+辅助模块:auxiliary/scanner/http/open_proxy</li>
+</ul>
+<h3 id="3-2口令猜测与嗅探">3.2口令猜测与嗅探</h3>
+<p>1.SSH服务口令猜测</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">msf5 &gt; use auxiliary/scanner/ssh/ssh_login</span><br><span class="line">msf5 auxiliary(scanner/ssh/ssh_login) &gt; show options</span><br><span class="line"></span><br><span class="line">Module options (auxiliary/scanner/ssh/ssh_login):</span><br><span class="line"></span><br><span class="line">   Name              Current Setting   Required  Description</span><br><span class="line">   ----              ---------------   --------  -----------</span><br><span class="line">   BLANK_PASSWORDS   false             no        Try blank passwords for all users</span><br><span class="line">   BRUTEFORCE_SPEED  5                 yes       How fast to bruteforce, from 0 to 5</span><br><span class="line">   DB_ALL_CREDS      false             no        Try each user/password couple stored in the current database</span><br><span class="line">   DB_ALL_PASS       false             no        Add all passwords in the current database to the list</span><br><span class="line">   DB_ALL_USERS      false             no        Add all users in the current database to the list</span><br><span class="line">   PASSWORD          ubnutu            no        A specific password to authenticate with</span><br><span class="line">   PASS_FILE         /root/ubuntu.txt  no        File containing passwords, one per line</span><br><span class="line">   RHOSTS            10.10.10.254      yes       The target address range or CIDR identifier</span><br><span class="line">   RPORT             22                yes       The target port</span><br><span class="line">   STOP_ON_SUCCESS   false             yes       Stop guessing when a credential works for a host</span><br><span class="line">   THREADS           50                yes       The number of concurrent threads</span><br><span class="line">   USERNAME          root              no        A specific username to authenticate as</span><br><span class="line">   USERPASS_FILE                       no        File containing users and passwords separated by space, one pair per line</span><br><span class="line">   USER_AS_PASS      false             no        Try the username as the password for all users</span><br><span class="line">   USER_FILE                           no        File containing usernames, one per line</span><br><span class="line">   VERBOSE           false             yes       Whether to print output for all attempts</span><br><span class="line"></span><br><span class="line">msf5 auxiliary(scanner/ssh/ssh_login) &gt; set RHOSTS 10.10.10.254</span><br><span class="line">RHOSTS =&gt; 10.10.10.254</span><br><span class="line">msf5 auxiliary(scanner/ssh/ssh_login) &gt; set USERNAME root</span><br><span class="line">USERNAME =&gt; root</span><br><span class="line">msf5 auxiliary(scanner/ssh/ssh_login) &gt; set PASS_FILE /root/ubuntu.txt</span><br><span class="line">PASS_FILE =&gt; /root/ubuntu.txt</span><br><span class="line">msf5 auxiliary(scanner/ssh/ssh_login) &gt; set THREADS 50</span><br><span class="line">THREADS =&gt; 50</span><br><span class="line">msf5 auxiliary(scanner/ssh/ssh_login) &gt; run</span><br><span class="line"></span><br><span class="line">[+] 10.10.10.254:22 - Success: &apos;root:ubuntu&apos; &apos;&apos;</span><br><span class="line">[*] Command shell session 2 opened (10.10.10.128:42761 -&gt; 10.10.10.254:22) at 2019-08-04 16:25:54 +0800</span><br><span class="line">[*] Scanned 1 of 1 hosts (100% complete)</span><br><span class="line">[*] Auxiliary module execution completed</span><br></pre></td></tr></table></figure>
+<p>2.psnuffle口令嗅探<br>
+辅助模块:auxiliary/sniffer/psnuffle</p>
+<h2 id="4-网络漏洞扫描">4.网络漏洞扫描</h2>
+<h3 id="4-1-安装openvas">4.1.安装OpenVAS</h3>
+<p><a href="https://blog.csdn.net/AcSuccess/article/details/73064732" target="_blank" rel="noopener">安装教程</a><br>
+注意:openvas-check-setup可能会报错<br>
+解决方法:按照提示
+FIX: Run a CERT synchronization script like <strong>openvas-certdata-sync</strong> or greenbone-certdata-sync. (特别是加粗的这个脚本.我安装时只提醒我要运行后一个脚本,但运行后仍无效,运行加粗的脚本之后问题解决)</p>
+<h3 id="4-2-在msfconsole中使用openvas">4.2.在Msfconsole中使用OpenVAS</h3>
+<h4 id="4-2-1-载入openvas">4.2.1.载入openvas</h4>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">msf5 &gt; load openvas</span><br><span class="line">[*] Welcome to OpenVAS integration by kost and averagesecurityguy.</span><br><span class="line">[*] </span><br><span class="line">[*] OpenVAS integration requires a database connection. Once the </span><br><span class="line">[*] database is ready, connect to the OpenVAS server using openvas_connect.</span><br><span class="line">[*] For additional commands use openvas_help.</span><br><span class="line">[*] </span><br><span class="line">[*] Successfully loaded plugin: OpenVAS</span><br></pre></td></tr></table></figure>
+<h4 id="4-2-2-连接到openvas的管理引擎">4.2.2.连接到OpenVAS的管理引擎</h4>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">msf5 &gt; openvas_connect admin 你自己设置的密码127.0.0.1 9390 ok</span><br><span class="line">[*] Connecting to OpenVAS instance at 127.0.0.1:9390 with username admin...</span><br><span class="line">[+] OpenVAS connection successful</span><br></pre></td></tr></table></figure>
+<h4 id="4-2-3-创建扫描目标">4.2.3.创建扫描目标</h4>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">msf5 &gt; openvas_target_create test 10.10.10.254 Metasploitable</span><br><span class="line">[*] 5692f7b4-4527-4315-97ea-4ba84a4773c3</span><br><span class="line">[+] OpenVAS list of targets</span><br><span class="line"></span><br><span class="line">ID                                    Name     Hosts         Max Hosts  In Use  Comment</span><br><span class="line">--                                    ----     -----         ---------  ------  -------</span><br><span class="line">54f9d83b-17fa-4816-afe8-648172143699  ubuntu1  10.10.10.254  1          1       Metasploitable</span><br><span class="line">5692f7b4-4527-4315-97ea-4ba84a4773c3  test     10.10.10.254  1          0       Metasploitable</span><br></pre></td></tr></table></figure>
+<h4 id="4-2-4-创建扫描任务">4.2.4.创建扫描任务</h4>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">msf5 &gt; openvas_task_create -help</span><br><span class="line">[*] Usage: openvas_task_create &lt;name&gt; &lt;comment&gt; &lt;config_id&gt; &lt;target_id&gt;</span><br><span class="line"></span><br><span class="line">msf5 &gt; openvas_config_list</span><br><span class="line">[+] OpenVAS list of configs</span><br><span class="line"></span><br><span class="line">ID                                    Name</span><br><span class="line">--                                    ----</span><br><span class="line">085569ce-73ed-11df-83c3-002264764cea  empty</span><br><span class="line">2d3f051c-55ba-11e3-bf43-406186ea4fc5  Host Discovery</span><br><span class="line">698f691e-7489-11df-9d8c-002264764cea  Full and fast ultimate</span><br><span class="line">708f25c4-7489-11df-8094-002264764cea  Full and very deep</span><br><span class="line">74db13d6-7489-11df-91b9-002264764cea  Full and very deep ultimate</span><br><span class="line">8715c877-47a0-438d-98a3-27c7a6ab2196  Discovery</span><br><span class="line">bbca7412-a950-11e3-9109-406186ea4fc5  System Discovery</span><br><span class="line">daba56c8-73ec-11df-a475-002264764cea  Full and fast</span><br><span class="line"></span><br><span class="line">msf5 &gt; openvas_targets_list</span><br><span class="line">[-] Unknown command: openvas_targets_list.</span><br><span class="line">msf5 &gt; openvas_target_list</span><br><span class="line">[+] OpenVAS list of targets</span><br><span class="line"></span><br><span class="line">ID                                    Name     Hosts         Max Hosts  In Use  Comment</span><br><span class="line">--                                    ----     -----         ---------  ------  -------</span><br><span class="line">54f9d83b-17fa-4816-afe8-648172143699  ubuntu1  10.10.10.254  1          1       Metasploitable</span><br><span class="line">5692f7b4-4527-4315-97ea-4ba84a4773c3  test     10.10.10.254  1          0       Metasploitable</span><br><span class="line"></span><br><span class="line">msf5 &gt; openvas_task_create test1 &quot;Scan test&quot; daba56c8-73ec-11df-a475-002264764cea 5692f7b4-4527-4315-97ea-4ba84a4773c3</span><br><span class="line">[*] df87292f-9c36-44e0-bb11-fccebc9b6c07</span><br><span class="line">[+] OpenVAS list of tasks</span><br><span class="line"></span><br><span class="line">ID                                    Name    Comment                        Status  Progress</span><br><span class="line">--                                    ----    -------                        ------  --------</span><br><span class="line">2659ed72-abab-4c8f-bc15-851c28a718b4  Ubuntu  Scan of Ubuntu Metasploitable  Done    -1</span><br><span class="line">df87292f-9c36-44e0-bb11-fccebc9b6c07  test1   Scan test                      New     -1</span><br></pre></td></tr></table></figure>
+<h4 id="4-2-5启动扫描任务">4.2.5启动扫描任务</h4>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">msf5 &gt; openvas_task_start df87292f-9c36-44e0-bb11-fccebc9b6c07</span><br><span class="line">[*] &lt;X&gt;&lt;authenticate_response status=&apos;200&apos; status_text=&apos;OK&apos;&gt;&lt;role&gt;Admin&lt;/role&gt;&lt;timezone&gt;UTC&lt;/timezone&gt;&lt;severity&gt;nist&lt;/severity&gt;&lt;/authenticate_response&gt;&lt;start_task_response status=&apos;202&apos; status_text=&apos;OK, request submitted&apos;&gt;&lt;report_id&gt;458f32be-7855-4dfc-9968-fb80ad52ee4f&lt;/report_id&gt;&lt;/start_task_response&gt;&lt;/X&gt;</span><br><span class="line">msf5 &gt; openvas_task_list</span><br><span class="line">[+] OpenVAS list of tasks</span><br><span class="line"></span><br><span class="line">ID                                    Name    Comment                        Status   Progress</span><br><span class="line">--                                    ----    -------                        ------   --------</span><br><span class="line">2659ed72-abab-4c8f-bc15-851c28a718b4  Ubuntu  Scan of Ubuntu Metasploitable  Done     -1</span><br><span class="line">df87292f-9c36-44e0-bb11-fccebc9b6c07  test1   Scan test                      Running  1</span><br></pre></td></tr></table></figure>
+<p>等待任务完成</p>
+<h4 id="4-2-6下载扫描报告">4.2.6下载扫描报告</h4>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">msf5 &gt; openvas_report_list</span><br></pre></td></tr></table></figure>
+<p>可以在127.0.0.1:9392
+查看相关信息
+<img src="/images/%E6%B8%97%E9%80%8F%E5%AD%A6%E4%B9%A0-4-%E6%83%85%E6%8A%A5%E6%90%9C%E9%9B%86/tasks.png" alt="OpenVAS_tasks">
+<img src="/images/%E6%B8%97%E9%80%8F%E5%AD%A6%E4%B9%A0-4-%E6%83%85%E6%8A%A5%E6%90%9C%E9%9B%86/result.png" alt="OpenVAS_result"></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    K
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://zebra233.github.io/2019/08/04/渗透学习-4-情报搜集/" title="[渗透学习]4.情报搜集">https://zebra233.github.io/2019/08/04/渗透学习-4-情报搜集/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/08/04/渗透学习-3-渗透测试实验环境/" rel="next" title="[渗透学习]3.渗透测试实验环境">
+                <i class="fa fa-chevron-left"></i> [渗透学习]3.渗透测试实验环境
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">K</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">分类</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+            <div class="cc-license motion-element" itemprop="license">
+              <a href="https://creativecommons.org/licenses/by/4.0/" class="cc-opacity" target="_blank">
+                <img src="/images/cc-by.svg" alt="Creative Commons">
+              </a>
+            </div>
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-text">情报搜集技术</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-外围信息搜集"><span class="nav-text">1.外围信息搜集</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-通过dns和ip"><span class="nav-text">1.1.通过DNS和IP</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-搜索引擎"><span class="nav-text">1.2.搜索引擎</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-主机探测与端口扫描"><span class="nav-text">2.主机探测与端口扫描</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-寻找活跃主机"><span class="nav-text">2.1.寻找活跃主机</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-操作系统识别"><span class="nav-text">2.2.操作系统识别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-端口扫描"><span class="nav-text">2.3.端口扫描</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-4-探测结果分析"><span class="nav-text">2.4.探测结果分析</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-服务扫描与查点"><span class="nav-text">3.服务扫描与查点</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1网络服务扫描"><span class="nav-text">3.1网络服务扫描</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2口令猜测与嗅探"><span class="nav-text">3.2口令猜测与嗅探</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-网络漏洞扫描"><span class="nav-text">4.网络漏洞扫描</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-安装openvas"><span class="nav-text">4.1.安装OpenVAS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-在msfconsole中使用openvas"><span class="nav-text">4.2.在Msfconsole中使用OpenVAS</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#4-2-1-载入openvas"><span class="nav-text">4.2.1.载入openvas</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-2-2-连接到openvas的管理引擎"><span class="nav-text">4.2.2.连接到OpenVAS的管理引擎</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-2-3-创建扫描目标"><span class="nav-text">4.2.3.创建扫描目标</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-2-4-创建扫描任务"><span class="nav-text">4.2.4.创建扫描任务</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-2-5启动扫描任务"><span class="nav-text">4.2.5启动扫描任务</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-2-6下载扫描报告"><span class="nav-text">4.2.6下载扫描报告</span></a></li></ol></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        
+<div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">K</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://<your-shortname>.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'https://zebra233.github.io/2019/08/04/渗透学习-4-情报搜集/';
+          this.page.identifier = '2019/08/04/渗透学习-4-情报搜集/';
+          this.page.title = '[渗透学习]4.情报搜集';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://<your-shortname>.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
