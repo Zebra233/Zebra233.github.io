@@ -90,7 +90,7 @@
 <meta property="og:image" content="https://zebra233.github.io/images/%E6%B8%97%E9%80%8F%E5%AD%A6%E4%B9%A0-4-%E6%83%85%E6%8A%A5%E6%90%9C%E9%9B%86/result.png">
 <meta property="og:image" content="https://zebra233.github.io/images/%E6%B8%97%E9%80%8F%E5%AD%A6%E4%B9%A0-4-%E6%83%85%E6%8A%A5%E6%90%9C%E9%9B%86/db_import.png">
 <meta property="og:image" content="https://zebra233.github.io/images/%E6%B8%97%E9%80%8F%E5%AD%A6%E4%B9%A0-4-%E6%83%85%E6%8A%A5%E6%90%9C%E9%9B%86/armitage_connect.png">
-<meta property="og:updated_time" content="2019-08-05T10:41:32.965Z">
+<meta property="og:updated_time" content="2019-08-05T10:48:31.564Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[渗透学习]4.情报搜集">
 <meta name="twitter:description" content="通过情信息搜集工作,确定渗透测试目标范围 通过情报信息搜集,发现渗透目标的安全漏洞与脆弱点,为后续的渗透攻击提供基础">
@@ -334,7 +334,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-08-05T18:41:32+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2019-08-05T18:48:31+08:00">
                 2019-08-05
               </time>
             
@@ -488,8 +488,10 @@ FIX: Run a CERT synchronization script like <strong>openvas-certdata-sync</stron
 <li>启动扫描任务</li>
 </ol>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"> msf5 &gt; openvas_task_start df87292f-9c36-44e0-bb11-fccebc9b6c07</span><br><span class="line"> [*] &lt;X&gt;&lt;authenticate_response status=&apos;200&apos; status_text=&apos;OK&apos;&gt;&lt;role&gt;Admin&lt;/role&gt;&lt;timezone&gt;UTC&lt;/timezone&gt;   &lt;severity&gt;nist&lt;/severity&gt;&lt;/authenticate_response&gt;&lt;start_task_response status=&apos;202&apos; status_text=&apos;OK, request submitted&apos;&gt;&lt;report_id&gt;458f32be-7855-4dfc-9968-fb80ad52ee4f&lt;/report_id&gt;&lt;/start_task_response&gt;&lt;/X&gt;</span><br><span class="line">msf5 &gt; openvas_task_list</span><br><span class="line">[+] OpenVAS list of tasks</span><br><span class="line"></span><br><span class="line"> ID                                    Name    Comment                          Status   Progress</span><br><span class="line"> --                                    ----    -------                        - -----   --------</span><br><span class="line"> 2659ed72-abab-4c8f-bc15-851c28a718b4  Ubuntu  Scan of Ubuntu Metasploitable  Done     -1</span><br><span class="line"> df87292f-9c36-44e0-bb11-fccebc9b6c07  test1   Scan test                      Running  1</span><br></pre></td></tr></table></figure>
-<p>等待任务完成
-6 下载扫描报告</p>
+<p>等待任务完成</p>
+<ol start="6">
+<li>下载扫描报告</li>
+</ol>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">msf5 &gt; openvas_report_list</span><br></pre></td></tr></table></figure>
 <p>可以在127.0.0.1:9392
 查看相关信息
