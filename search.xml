@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[[渗透学习]8.XSS]]></title>
     <url>%2F2019%2F09%2F04%2F%E9%80%8F%E5%AD%A6%E4%B9%A0-8-XSS%2F</url>
-    <content type="text"><![CDATA[反射型XSS XSS 反射型XSS 1. DVWA安全级别为低时 源码为 123456789101112131415 &lt;?phpif(!array_key_exists (&quot;name&quot;, $_GET) || $_GET[&apos;name&apos;] == NULL || $_GET[&apos;name&apos;] == &apos;&apos;)&#123;$isempty = true;&#125; else &#123; echo &apos;&lt;pre&gt;&apos;; echo &apos;Hello &apos; . $_GET[&apos;name&apos;]; echo &apos;&lt;/pre&gt;&apos;; &#125;?&gt; 输入```1234![跳出弹窗](/images/渗透学习-8-XSS/low_xss.png)### 2. DVWA安全级别为中时源码为 123只是将```&lt;script&gt;```屏蔽了#### 1.大小写绕过输入```&lt;SCRIPT&gt;alert(&apos;ccc&apos;)&lt;/SCRIPT&gt; 2.双写绕过 输入12#### 3.避开被过滤的符号，转换脚本样式输入```&lt;img src=&quot;https://www.baidu.com&quot; onmouseover=prompt(document.cookie) /&gt; onmouseover 事件会在鼠标指针移动到指定的对象上时发生 prompt() 方法用于显示可提示用户进行输入的对话框 或者输入onfocus12345onfocus 事件在对象获得焦点时发生![点击构造的输入框](/images/渗透学习-8-XSS/mid_xss3.png)### 3.DVWA安全级别为高时源码为 1[htmlspecialchars的作用](https://www.w3school.com.cn/php/func_string_htmlspecialchars.asp) htmlspecialchars() 函数把预定义的字符转换为 HTML 实体。 预定义的字符是： &amp; （和号）成为 &amp; &quot; （双引号）成为 &quot; ' （单引号）成为 ' &lt; （小于）成为 &lt; （大于）成为 &gt; 也就是说输入```&lt;script&gt;```就会输出```&lt;script&gt;```,而不是将其作为脚本 没办法 --- 参考资料:[DVWA之跨站脚本攻击漏洞测试01-反射型XSS](https://www.jianshu.com/p/c6ed01e6f905)]]></content>
+    <content type="text"><![CDATA[反射型XSS XSS 反射型XSS 1. DVWA安全级别为低时 源码为 123456789101112131415 &lt;?phpif(!array_key_exists (&quot;name&quot;, $_GET) || $_GET[&apos;name&apos;] == NULL || $_GET[&apos;name&apos;] == &apos;&apos;)&#123;$isempty = true;&#125; else &#123; echo &apos;&lt;pre&gt;&apos;; echo &apos;Hello &apos; . $_GET[&apos;name&apos;]; echo &apos;&lt;/pre&gt;&apos;; &#125;?&gt; 输入```12345![跳出弹窗](/images/渗透学习-8-XSS/low_xss.png)### 2. DVWA安全级别为中时源码为 123只是将```&lt;script&gt;```屏蔽了#### 1.大小写绕过输入```&lt;SCRIPT&gt;alert(&apos;ccc&apos;)&lt;/SCRIPT&gt; 2.双写绕过 输入12#### 3.避开被过滤的符号，转换脚本样式输入```&lt;img src=&quot;https://www.baidu.com&quot; onmouseover=prompt(document.cookie) /&gt; onmouseover 事件会在鼠标指针移动到指定的对象上时发生 prompt() 方法用于显示可提示用户进行输入的对话框 或者输入onfocus12345onfocus 事件在对象获得焦点时发生![点击构造的输入框](/images/渗透学习-8-XSS/mid_xss3.png)### 3.DVWA安全级别为高时源码为 1[htmlspecialchars的作用](https://www.w3school.com.cn/php/func_string_htmlspecialchars.asp) htmlspecialchars() 函数把预定义的字符转换为 HTML 实体。 预定义的字符是： &amp; （和号）成为 &amp; &quot; （双引号）成为 &quot; ' （单引号）成为 ' &lt; （小于）成为 &lt; （大于）成为 &gt; 也就是说输入```&lt;script&gt;```就会输出```&lt;script&gt;```,而不是将其作为脚本 没办法 --- 参考资料:[DVWA之跨站脚本攻击漏洞测试01-反射型XSS](https://www.jianshu.com/p/c6ed01e6f905)]]></content>
   </entry>
   <entry>
     <title><![CDATA[[渗透学习]7.Sql注入]]></title>
@@ -38,8 +38,8 @@
         <category>渗透学习</category>
       </categories>
       <tags>
-        <tag>实战演习</tag>
         <tag>渗透</tag>
+        <tag>实战演习</tag>
       </tags>
   </entry>
   <entry>
@@ -50,8 +50,8 @@
         <category>渗透学习</category>
       </categories>
       <tags>
-        <tag>渗透</tag>
         <tag>学习</tag>
+        <tag>渗透</tag>
       </tags>
   </entry>
 </search>
