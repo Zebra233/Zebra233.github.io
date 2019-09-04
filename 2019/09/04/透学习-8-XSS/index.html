@@ -90,7 +90,7 @@
 <meta property="og:image" content="https://zebra233.github.io/images/%E6%B8%97%E9%80%8F%E5%AD%A6%E4%B9%A0-8-XSS/mid_xss.png">
 <meta property="og:image" content="https://zebra233.github.io/images/%E6%B8%97%E9%80%8F%E5%AD%A6%E4%B9%A0-8-XSS/mid_xss2.png">
 <meta property="og:image" content="https://zebra233.github.io/images/%E6%B8%97%E9%80%8F%E5%AD%A6%E4%B9%A0-8-XSS/mid_xss3.png">
-<meta property="og:updated_time" content="2019-09-04T13:06:30.121Z">
+<meta property="og:updated_time" content="2019-09-04T13:10:52.578Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[渗透学习]8.XSS">
 <meta name="twitter:description" content="反射型XSS">
@@ -334,7 +334,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-09-04T21:06:30+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2019-09-04T21:10:52+08:00">
                 2019-09-04
               </time>
             
@@ -382,13 +382,13 @@
 <a id="more"></a>
 <h1>XSS</h1>
 <h2 id="反射型xss">反射型XSS</h2>
-<h3 id="1-dvwa安全级别为低时">1. DVWA安全级别为低时</h3>
+<h3 id="1-dvwa安全级别为低时">1.DVWA安全级别为低时</h3>
 <p>源码为</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"> &lt;?php</span><br><span class="line"></span><br><span class="line">if(!array_key_exists (&quot;name&quot;, $_GET) || $_GET[&apos;name&apos;] == NULL || $_GET[&apos;name&apos;] == &apos;&apos;)&#123;</span><br><span class="line"></span><br><span class="line">$isempty = true;</span><br><span class="line"></span><br><span class="line">&#125; else &#123;</span><br><span class="line">       </span><br><span class="line"> echo &apos;&lt;pre&gt;&apos;;</span><br><span class="line"> echo &apos;Hello &apos; . $_GET[&apos;name&apos;];</span><br><span class="line"> echo &apos;&lt;/pre&gt;&apos;;</span><br><span class="line">   </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
 <p>输入</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;alert(&apos;XSS&apos;)&lt;/script&gt;</span><br></pre></td></tr></table></figure>
 <p><img src="/images/%E6%B8%97%E9%80%8F%E5%AD%A6%E4%B9%A0-8-XSS/low_xss.png" alt="跳出弹窗"></p>
-<h3 id="2-dvwa安全级别为中时">2. DVWA安全级别为中时</h3>
+<h3 id="2-dvwa安全级别为中时">2.DVWA安全级别为中时</h3>
 <p>源码为</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"> &lt;?php</span><br><span class="line"></span><br><span class="line">if(!array_key_exists (&quot;name&quot;, $_GET) || $_GET[&apos;name&apos;] == NULL || $_GET[&apos;name&apos;] == &apos;&apos;)&#123;</span><br><span class="line"></span><br><span class="line">$isempty = true;</span><br><span class="line"></span><br><span class="line">&#125; else &#123;</span><br><span class="line"></span><br><span class="line"> echo &apos;&lt;pre&gt;&apos;;</span><br><span class="line"> echo &apos;Hello &apos; . str_replace(&apos;&lt;script&gt;&apos;, &apos;&apos;, $_GET[&apos;name&apos;]);</span><br><span class="line"> echo &apos;&lt;/pre&gt;&apos;; </span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
 <p>只是将</p>
@@ -622,7 +622,7 @@ prompt() 方法用于显示可提示用户进行输入的对话框
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-text">XSS</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#反射型xss"><span class="nav-text">反射型XSS</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-dvwa安全级别为低时"><span class="nav-text">1. DVWA安全级别为低时</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-dvwa安全级别为中时"><span class="nav-text">2. DVWA安全级别为中时</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-大小写绕过"><span class="nav-text">1.大小写绕过</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-双写绕过"><span class="nav-text">2.双写绕过</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-避开被过滤的符号-转换脚本样式"><span class="nav-text">3.避开被过滤的符号，转换脚本样式</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-dvwa安全级别为高时"><span class="nav-text">3.DVWA安全级别为高时</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-text">XSS</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#反射型xss"><span class="nav-text">反射型XSS</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-dvwa安全级别为低时"><span class="nav-text">1.DVWA安全级别为低时</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-dvwa安全级别为中时"><span class="nav-text">2.DVWA安全级别为中时</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-大小写绕过"><span class="nav-text">1.大小写绕过</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-双写绕过"><span class="nav-text">2.双写绕过</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-避开被过滤的符号-转换脚本样式"><span class="nav-text">3.避开被过滤的符号，转换脚本样式</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-dvwa安全级别为高时"><span class="nav-text">3.DVWA安全级别为高时</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
