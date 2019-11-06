@@ -88,7 +88,7 @@
 <meta property="og:description" content="动态网页的爬取">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://zebra233.github.io/images/%5BPython%5D%E7%88%AC%E8%99%AB-%E7%88%AC%E5%8F%96%E5%8A%A8%E6%80%81%E7%BD%91%E9%A1%B5/%E5%88%86%E6%9E%90%E8%BF%94%E5%9B%9E%E6%95%B0%E6%8D%AE.png">
-<meta property="og:updated_time" content="2019-11-06T07:24:07.673Z">
+<meta property="og:updated_time" content="2019-11-06T07:29:12.781Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[Python]爬虫-爬取动态网页">
 <meta name="twitter:description" content="动态网页的爬取">
@@ -332,7 +332,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-11-06T15:24:07+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2019-11-06T15:29:12+08:00">
                 2019-11-06
               </time>
             
@@ -390,128 +390,16 @@
 <p>直接访问request Url返回为空
 网页采取了同源策略
 因此headers应构造为:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">headers = &#123;</span><br><span class="line">        &quot;cookie&quot;: &quot;yourCookie&quot;,</span><br><span class="line">        &quot;referer&quot;: url,</span><br><span class="line">        &quot;user-agent&quot;: &quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.87 Safari/537.36&quot;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">headers = &#123;</span><br><span class="line">       &quot;cookie&quot;: &quot;yourCookie&quot;,</span><br><span class="line">       &quot;referer&quot;: url,</span><br><span class="line">       &quot;user-agent&quot;: &quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.87 Safari/537.36&quot;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
 <p>headers中的referer表示你是从哪个网页来到这个网页的
-url因为当前这个网页即:<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">完整代码:</span><br></pre></td></tr></table></figure></p>
-<p>import requests
-import time
-from bs4 import BeautifulSoup
-import re
-import MySQLdb</p>
-<p>def getDesignation(url, start, end):
-url1 = url
-urlList = []
-for i in range(start - 1, end):
-url = url1 + &quot;/page/&quot; + str(i)
-soup = getHtml(url)
-div = soup.find_all(&quot;a&quot;, class_=&quot;movie-box&quot;)
-for a in div:
-urlList.append(str(a['href']))
-return urlList</p>
-<p>def getHtml(url):
-# proxies = {&quot;http&quot;:&quot;127.0.0.1:7890&quot;,&quot;https&quot;:&quot;127.0.0.1:7890&quot;}
-headers = {
-&quot;user-agent&quot;: &quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.87 Safari/537.36&quot;,
-&quot;Cookie&quot;: &quot;__cfduid=d48bd03c3af7e9f9d83f3e891fa11ac591572860346; PHPSESSID=hepauv3nr32pnmcludn1r6taa0; existmag=mag&quot;}
-while True:  # 一直循环直到访问成功
-try:
-r = requests.get(url, headers=headers)
-soup = BeautifulSoup(r.text, &quot;lxml&quot;)
-return soup
-except requests.exceptions.ConnectionError:
-print('ConnectionError -- please wait 1 seconds')
-time.sleep(1)
-except requests.exceptions.HTTPError:
-print('HTTPError -- please wait 1 seconds')
-time.sleep(1)
-except requests.exceptions.Timeout:
-print('TimeoutError -- please wait 1 seconds')
-time.sleep(1)
-except:
-print('Unfortunitely -- An Unknow Error Happened, Please wait 1 seconds')
-time.sleep(1)</p>
-<p>def getDescribe(soup):
-result = soup.select(&quot;body &gt; .container &gt; h3&quot;)[0].get_text()
-return result</p>
-<p>def getId(soup):
-idCode = <br>
-soup.select(&quot;body &gt; div.container &gt; div.row.movie &gt; <a href="http://div.col-md-3.info" target="_blank" rel="noopener">div.col-md-3.info</a> &gt; p:nth-child(1) &gt; span:nth-child(2)&quot;)[
-0].get_text()
-return idCode</p>
-<p>def getIsData(soup):
-issueData = soup.select(&quot;body &gt; div.container &gt; div.row.movie &gt; <a href="http://div.col-md-3.info" target="_blank" rel="noopener">div.col-md-3.info</a> &gt; p:nth-child(2)&quot;)[0].get_text()
-issueData = issueData[6:]
-return issueData</p>
-<p>def getDuration(soup):
-duration = soup.select(&quot;body &gt; div.container &gt; div.row.movie &gt; <a href="http://div.col-md-3.info" target="_blank" rel="noopener">div.col-md-3.info</a> &gt; p:nth-child(3)&quot;)[0].get_text()
-reDu = re.compile(r'[0-9]{1,3}')
-duration = reDu.search(duration).group()
-return int(duration)</p>
-<p>def getActor(soup):
-actor = soup.select(&quot;body &gt; div.container &gt; div.row.movie &gt; <a href="http://div.col-md-3.info" target="_blank" rel="noopener">div.col-md-3.info</a> &gt; p:last-child&quot;)
-if actor:
-return actor[0].get_text()
-return &quot;暂无&quot;</p>
-<p>def getMagent(soup, url):
-headers = {
-&quot;cookie&quot;: &quot;__cfduid=d7c5d33dbb814b0a23dae4be2aac7c3e81573010426; PHPSESSID=ivnobghsmkl9314o8lfbe9aif4; existmag=mag&quot;,
-&quot;referer&quot;: url,
-&quot;user-agent&quot;: &quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.87 Safari/537.36&quot;
-}
-ajaxUrl = '<a href="https://www.javbus.com/ajax/uncledatoolsbyajax.php?lang=zh" target="_blank" rel="noopener">https://www.javbus.com/ajax/uncledatoolsbyajax.php?lang=zh</a>'
-ajaxData = soup.select('script')[8].text
-for l in ajaxData.split(';')[:-1]:
-ajaxUrl += '&amp;%s' % l[7:].replace(&quot;'&quot;, &quot;&quot;).replace(' ', '')
-times = 0
-while (times &lt; 3):
-try:
-report = requests.get(ajaxUrl, headers=headers)
-soupD = BeautifulSoup(report.text, &quot;lxml&quot;)
-times += 1
-magentAll = soupD.find_all(&quot;a&quot;, title=&quot;滑鼠右鍵點擊並選擇【複製連結網址】&quot;, text=re.compile(r'.<em>GB.</em>', re.DOTALL))
-reGB = re.compile('\d+\W\d+')
-dic = {}
-for i in magentAll:
-dic[str(i['href'])] = float(reGB.search(i.string).group())
-dic = sorted(dic.items(), key=lambda x: x[1], reverse=True)
-return dic[0][0]
-except BaseException as e:
-print(e)
-time.sleep(1)</p>
-<p>def getImg(soup):
-img = soup.select(&quot;body &gt; div.container &gt; div.row.movie &gt; div.col-md-9.screencap &gt; a &gt; img&quot;)[0]['src']
-return img</p>
-<p>def inputDB(url, soup):
-# 连接数据库
-db = MySQLdb.connect(host='127.0.0.1', port=3306, user='root', password='root', db='javInfo', charset='utf8')
-cursor = db.cursor()
-id = getId(soup)
-describe = getDescribe(soup)
-issueData = getIsData(soup)
-duration = getDuration(soup)
-actor = getActor(soup)
-magent = getMagent(soup, url)
-img = getImg(soup);
-sql = 'INSERT INTO jav(识别码,描述,发行日期,时长,演员,链接,图片链接) VALUE (%s,%s,%s,%s,%s,%s,%s)'
-value = (id, describe, issueData, duration, actor, magent, img)
-try:
-cursor.execute(sql, value)
-db.commit();
-print(&quot;插入成功&quot;)
-except BaseException as e:
-db.rollback()
-print(e)</p>
-<p>if <strong>name</strong> == '<strong>main</strong>':
-for url in getDesignation(&quot;<a href="http://www.javbus.com" target="_blank" rel="noopener">http://www.javbus.com</a>&quot;, 1, 5):
-print(url)
-soup = getHtml(url)
-inputDB(url, soup)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"># 方法二:Selenium 模拟登录</span><br><span class="line">需要下载一个chromedriver.exe</span><br><span class="line"></span><br><span class="line">基本的使用方法:</span><br></pre></td></tr></table></figure>
-<p>from selenium import webdriver
-browser = webdriver.Chrome(chromedriver.exe所在的 路径)
-browser.get(yourUrl)</p>
-<pre><code></code></pre>
-
+url因为当前这个网页即:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://www.jxxxxs.com</span><br></pre></td></tr></table></figure>
+<p>完整代码:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br></pre></td><td class="code"><pre><span class="line">import requests</span><br><span class="line">import time</span><br><span class="line">from bs4 import BeautifulSoup</span><br><span class="line">import re</span><br><span class="line">import MySQLdb</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def getDesignation(url, start, end):</span><br><span class="line">    url1 = url</span><br><span class="line">    urlList = []</span><br><span class="line">    for i in range(start - 1, end):</span><br><span class="line">        url = url1 + &quot;/page/&quot; + str(i)</span><br><span class="line">        soup = getHtml(url)</span><br><span class="line">        div = soup.find_all(&quot;a&quot;, class_=&quot;movie-box&quot;)</span><br><span class="line">        for a in div:</span><br><span class="line">            urlList.append(str(a[&apos;href&apos;]))</span><br><span class="line">    return urlList</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def getHtml(url):</span><br><span class="line">    # proxies = &#123;&quot;http&quot;:&quot;127.0.0.1:7890&quot;,&quot;https&quot;:&quot;127.0.0.1:7890&quot;&#125;</span><br><span class="line">    headers = &#123;</span><br><span class="line">        &quot;user-agent&quot;: &quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.87 Safari/537.36&quot;,</span><br><span class="line">        &quot;Cookie&quot;: &quot;__cfduid=d48bd03c3af7e9f9d83f3e891fa11ac591572860346; PHPSESSID=hepauv3nr32pnmcludn1r6taa0; existmag=mag&quot;&#125;</span><br><span class="line">    while True:  # 一直循环直到访问成功</span><br><span class="line">        try:</span><br><span class="line">            r = requests.get(url, headers=headers)</span><br><span class="line">            soup = BeautifulSoup(r.text, &quot;lxml&quot;)</span><br><span class="line">            return soup</span><br><span class="line">        except requests.exceptions.ConnectionError:</span><br><span class="line">            print(&apos;ConnectionError -- please wait 1 seconds&apos;)</span><br><span class="line">            time.sleep(1)</span><br><span class="line">        except requests.exceptions.HTTPError:</span><br><span class="line">            print(&apos;HTTPError -- please wait 1 seconds&apos;)</span><br><span class="line">            time.sleep(1)</span><br><span class="line">        except requests.exceptions.Timeout:</span><br><span class="line">            print(&apos;TimeoutError -- please wait 1 seconds&apos;)</span><br><span class="line">            time.sleep(1)</span><br><span class="line">        except:</span><br><span class="line">            print(&apos;Unfortunitely -- An Unknow Error Happened, Please wait 1 seconds&apos;)</span><br><span class="line">            time.sleep(1)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def getDescribe(soup):</span><br><span class="line">    result = soup.select(&quot;body &gt; .container &gt; h3&quot;)[0].get_text()</span><br><span class="line">    return result</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def getId(soup):</span><br><span class="line">    idCode = \</span><br><span class="line">    soup.select(&quot;body &gt; div.container &gt; div.row.movie &gt; div.col-md-3.info &gt; p:nth-child(1) &gt; span:nth-child(2)&quot;)[</span><br><span class="line">        0].get_text()</span><br><span class="line">    return idCode</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def getIsData(soup):</span><br><span class="line">    issueData = soup.select(&quot;body &gt; div.container &gt; div.row.movie &gt; div.col-md-3.info &gt; p:nth-child(2)&quot;)[0].get_text()</span><br><span class="line">    issueData = issueData[6:]</span><br><span class="line">    return issueData</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def getDuration(soup):</span><br><span class="line">    duration = soup.select(&quot;body &gt; div.container &gt; div.row.movie &gt; div.col-md-3.info &gt; p:nth-child(3)&quot;)[0].get_text()</span><br><span class="line">    reDu = re.compile(r&apos;[0-9]&#123;1,3&#125;&apos;)</span><br><span class="line">    duration = reDu.search(duration).group()</span><br><span class="line">    return int(duration)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def getActor(soup):</span><br><span class="line">    actor = soup.select(&quot;body &gt; div.container &gt; div.row.movie &gt; div.col-md-3.info &gt; p:last-child&quot;)</span><br><span class="line">    if actor:</span><br><span class="line">        return actor[0].get_text()</span><br><span class="line">    return &quot;暂无&quot;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def getMagent(soup, url):</span><br><span class="line">    headers = &#123;</span><br><span class="line">        &quot;cookie&quot;: &quot;__cfduid=d7c5d33dbb814b0a23dae4be2aac7c3e81573010426; PHPSESSID=ivnobghsmkl9314o8lfbe9aif4; existmag=mag&quot;,</span><br><span class="line">        &quot;referer&quot;: url,</span><br><span class="line">        &quot;user-agent&quot;: &quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.87 Safari/537.36&quot;</span><br><span class="line">    &#125;</span><br><span class="line">    ajaxUrl = &apos;https://www.javbus.com/ajax/uncledatoolsbyajax.php?lang=zh&apos;</span><br><span class="line">    ajaxData = soup.select(&apos;script&apos;)[8].text</span><br><span class="line">    for l in ajaxData.split(&apos;;&apos;)[:-1]:</span><br><span class="line">        ajaxUrl += &apos;&amp;%s&apos; % l[7:].replace(&quot;&apos;&quot;, &quot;&quot;).replace(&apos; &apos;, &apos;&apos;)</span><br><span class="line">    times = 0</span><br><span class="line">    while (times &lt; 3):</span><br><span class="line">        try:</span><br><span class="line">            report = requests.get(ajaxUrl, headers=headers)</span><br><span class="line">            soupD = BeautifulSoup(report.text, &quot;lxml&quot;)</span><br><span class="line">            times += 1</span><br><span class="line">            magentAll = soupD.find_all(&quot;a&quot;, title=&quot;滑鼠右鍵點擊並選擇【複製連結網址】&quot;, text=re.compile(r&apos;.*GB.*&apos;, re.DOTALL))</span><br><span class="line">            reGB = re.compile(&apos;\d+\W\d+&apos;)</span><br><span class="line">            dic = &#123;&#125;</span><br><span class="line">            for i in magentAll:</span><br><span class="line">                dic[str(i[&apos;href&apos;])] = float(reGB.search(i.string).group())</span><br><span class="line">            dic = sorted(dic.items(), key=lambda x: x[1], reverse=True)</span><br><span class="line">            return dic[0][0]</span><br><span class="line">        except BaseException as e:</span><br><span class="line">            print(e)</span><br><span class="line">            time.sleep(1)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def getImg(soup):</span><br><span class="line">    img = soup.select(&quot;body &gt; div.container &gt; div.row.movie &gt; div.col-md-9.screencap &gt; a &gt; img&quot;)[0][&apos;src&apos;]</span><br><span class="line">    return img</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def inputDB(url, soup):</span><br><span class="line">    # 连接数据库</span><br><span class="line">    db = MySQLdb.connect(host=&apos;127.0.0.1&apos;, port=3306, user=&apos;root&apos;, password=&apos;root&apos;, db=&apos;javInfo&apos;, charset=&apos;utf8&apos;)</span><br><span class="line">    cursor = db.cursor()</span><br><span class="line">    id = getId(soup)</span><br><span class="line">    describe = getDescribe(soup)</span><br><span class="line">    issueData = getIsData(soup)</span><br><span class="line">    duration = getDuration(soup)</span><br><span class="line">    actor = getActor(soup)</span><br><span class="line">    magent = getMagent(soup, url)</span><br><span class="line">    img = getImg(soup);</span><br><span class="line">    sql = &apos;INSERT INTO jav(识别码,描述,发行日期,时长,演员,链接,图片链接) VALUE (%s,%s,%s,%s,%s,%s,%s)&apos;</span><br><span class="line">    value = (id, describe, issueData, duration, actor, magent, img)</span><br><span class="line">    try:</span><br><span class="line">        cursor.execute(sql, value)</span><br><span class="line">        db.commit();</span><br><span class="line">        print(&quot;插入成功&quot;)</span><br><span class="line">    except BaseException as e:</span><br><span class="line">        db.rollback()</span><br><span class="line">        print(e)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">if __name__ == &apos;__main__&apos;:</span><br><span class="line">    for url in  getDesignation(&quot;http://www.javbus.com&quot;, 1, 5):</span><br><span class="line">        print(url)</span><br><span class="line">        soup = getHtml(url)</span><br><span class="line">        inputDB(url, soup)</span><br></pre></td></tr></table></figure>
+<h1>方法二:Selenium 模拟登录</h1>
+<p>需要下载一个chromedriver.exe</p>
+<p>基本的使用方法:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">from selenium import webdriver</span><br><span class="line">browser = webdriver.Chrome(chromedriver.exe所在的 路径)</span><br><span class="line">browser.get(yourUrl)</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -717,7 +605,7 @@ browser.get(yourUrl)</p>
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-text">方法一:动态页面逆向分析爬取</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-分析返回的数据"><span class="nav-text">1.分析返回的数据</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-在head中找到request-url"><span class="nav-text">2.在head中找到request Url</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-在源码中找到request-url中参数的由来-构造request-url"><span class="nav-text">3.在源码中找到request Url中参数的由来,构造request Url</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-构造headers"><span class="nav-text">4.构造headers</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-text">方法一:动态页面逆向分析爬取</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-分析返回的数据"><span class="nav-text">1.分析返回的数据</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-在head中找到request-url"><span class="nav-text">2.在head中找到request Url</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-在源码中找到request-url中参数的由来-构造request-url"><span class="nav-text">3.在源码中找到request Url中参数的由来,构造request Url</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-构造headers"><span class="nav-text">4.构造headers</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-text">方法二:Selenium 模拟登录</span></a></li></ol></div>
             
 
           </div>
