@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[CentOS Apache Access denied的问题]]></title>
+    <url>%2F2019%2F12%2F06%2FCentOS-Apache-Access-denied%E7%9A%84%E9%97%AE%E9%A2%98%2F</url>
+    <content type="text"><![CDATA[搭建完LAMP环境后,在/var/www/html下的info.php可以访问,但是uploadlab文件夹下的文件无法访问 查看/etc/httpd/logs/error_log 1[Fri Dec 06 21:27:20.196884 2019] [proxy_fcgi:error] [pid 14128:tid 140633612191488] [client 10.10.10.1:20590] AH01071: Got error &apos;Unable to open primary script: /var/www/html/uploadlab/index.php (Permission denied)\n&apos; 没有权限 权限配置 httpd.conf配置 12345&lt;Directory /&gt; Options FollowSymLinks AllowOverride none Require all granted&lt;/Directory&gt; 12345&lt;Directory &quot;/var/www&quot;&gt; AllowOverride None # Allow open access: Require all granted&lt;/Directory&gt; 1234567# Further relax access to the default document root:&lt;Directory &quot;/var/www/html&quot;&gt; Options Indexes FollowSymLinks AllowOverride None Require all granted&lt;/Directory&gt; 配置完成应该重启Apache(httpd)systemctl restart httpd 查看Apache(httpd)状态systemctl status httpd 我这个配置应该没什么问题 目录权限配置 /var/www/html/uploadlab/每级目录都设置为755 都可执行 SELinux 关闭SELINUX setenforce 0 或 12345vim /etc/selinux/config修改SELINUX=enforcing改成SELINUX=disabled 参考:Apache 403 error, (13)Permission denied: access to / denied问题]]></content>
+      <tags>
+        <tag>Linux</tag>
+        <tag>Apache</tag>
+        <tag>权限管理</tag>
+        <tag>SELinux</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Docker for Windows 使用 VMware WorkStation]]></title>
     <url>%2F2019%2F11%2F25%2Focker-for-Windows-%E4%BD%BF%E7%94%A8-VMware-WorkStation%2F</url>
     <content type="text"><![CDATA[Docker for Windows 不同于 Docker Toolbox。Docker for Windows 对系统的要求至少为Windows 10专业版，因为它需要Hyper-V的支持，而Dockbox Toolbox使用Oracle Virtual Box而不是Hyper-V 。使用过VMware WorkStation的朋友应该知道，vm无法与hyper-v共存。那么如果我的电脑已经安装和使用VM，如何才能使用Docker for Windows呢，请看下面的讲解。 一.安装Docker for Windows 1.下载Docker for Windows 从这个地址下载并进行安装：https://download.docker.com/win/stable/Docker for Windows Installer.exe 2.安装以后的准备 安装完成以后，Docker for Windows 会自动运行，此时会出现提示没有启用Hyper-V，这里点击canel即可。 二.准备工作 1.下载boot2docker.iso 从这个地址下载: https://github.com/boot2docker/boot2docker/releases/download/v18.05.0-ce/boot2docker.iso 然后将 boot2docker.iso 放在 C:\Users&lt;用户名&gt;.docker\machine\chache\，文件夹不存在就自己建立。 2.下载 VMware Workstation 驱动 从这里下载 https://github.com/pecigonzalo/docker-machine-vmwareworkstation/releases/ 最新版的vm驱动。此驱动非官方开发，但是也在官方的文档中有链接。 然后将 docker-machine-driver-vmwareworkstation.exe复制到 C:\Program Files\Docker\Docker\resources\bin 下： 三.安装Docker Machine 1.打开VMware Workstation 这一步是必须的！VM版本必须大于10。 2.安装dev示例 打开cmd，执行命令 1docker-machine create --driver=vmwareworkstation dev 执行过程如下： 如果显示dev 已存在就用 1docker-machine rm -f dev 删除dev 3.验证安装 执行命令： 1docker-machine ls 会出现一个dev的实例 4.激活实例 执行命令： 1docker-machine env dev 会出现如下图： 5.设置环境变量 打开环境变量设置，对于第3步中的提示设置系统环境变量： 设置这五个即可，最后记得要点确定哦。 四.验证是否安装成功 1.登录dev实例 使用命令登录： docker-machine ssh dev 出现如下表示成功： 或者出现is distributed with ABSOLUTELY NO WARRANTY.```的提醒应该也是成功了12## 2.运行hello-world关闭我们刚刚的cmd窗口，打开一个新的cmd窗口。执行命令： docker run hello-world 1234567到这一步我们的安装就表示成功了。# 五.配置加速器通过命令登录docker-machine新建文件 ```vi /etc/docker/daemon.json 输入以下内容 123&#123; &quot;registry-mirrors&quot;: [&quot;https://registry.docker-cn.com&quot;]&#125; 保存，重启即可 遇到的问题: 没有权限保存,而我又不知道root密码是什么 六.收尾工作 因为我们使用的VM，所以我们在使用docker的时候，必须保证vm的dev示例是在运行的： 此方法目前有个缺点，就是无法使用Docker for Windows的UI管理功能，但是这并不影响，通过命令我们可以完成所有的事情，所以我们在服务中，停止Docker for Windows Service，并且将其设为手动启动，避免每次开机就收到一个提示框。 参考: 1:Docker for Windows 使用 VMware WorkStation 2:Docker for windows on VMware]]></content>
@@ -125,8 +136,8 @@
         <category>渗透学习</category>
       </categories>
       <tags>
-        <tag>学习</tag>
         <tag>渗透</tag>
+        <tag>学习</tag>
       </tags>
   </entry>
 </search>

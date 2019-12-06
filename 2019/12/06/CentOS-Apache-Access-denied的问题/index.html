@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="Linux,Apache,权限管理,SELinux,">
 
 
 
@@ -79,13 +79,18 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="Zebra">
-<meta property="og:url" content="https://zebra233.github.io/tags/病毒木马蠕虫/index.html">
+<meta name="description" content="搭建完LAMP环境后,在/var/www/html下的info.php可以访问,但是uploadlab文件夹下的文件无法访问">
+<meta name="keywords" content="Linux,Apache,权限管理,SELinux">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CentOS Apache Access denied的问题">
+<meta property="og:url" content="https://zebra233.github.io/2019/12/06/CentOS-Apache-Access-denied的问题/index.html">
 <meta property="og:site_name" content="Zebra">
+<meta property="og:description" content="搭建完LAMP环境后,在/var/www/html下的info.php可以访问,但是uploadlab文件夹下的文件无法访问">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-12-06T13:48:35.397Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Zebra">
+<meta name="twitter:title" content="CentOS Apache Access denied的问题">
+<meta name="twitter:description" content="搭建完LAMP环境后,在/var/www/html下的info.php可以访问,但是uploadlab文件夹下的文件无法访问">
 
 
 
@@ -115,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="https://zebra233.github.io/tags/病毒木马蠕虫/">
+  <link rel="canonical" href="https://zebra233.github.io/2019/12/06/CentOS-Apache-Access-denied的问题/">
 
 
 
 
 
-  <title>标签: 病毒木马蠕虫 | Zebra</title>
+  <title>CentOS Apache Access denied的问题 | Zebra</title>
   
 
 
@@ -140,7 +145,7 @@
     
   
 
-  <div class="container sidebar-position-right ">
+  <div class="container sidebar-position-right page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -256,52 +261,215 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block tag">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>病毒木马蠕虫<small>标签</small>
-        </h1>
-      </div>
+  
 
-      
-        
+  
+  
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zebra233.github.io/2019/12/06/CentOS-Apache-Access-denied的问题/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="K">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zebra">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2019/11/18/安实验-注册表与简单木马/" itemprop="url">
-              
-                <span itemprop="name">[网安实验]注册表与简单木马</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">CentOS Apache Access denied的问题</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-11-18T19:50:00+08:00" content="2019-11-18">
-          11-18
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-12-06T21:34:00+08:00">
+                2019-12-06
+              </time>
+            
 
-    </header>
-  </article>
+            
+              <span class="post-meta-divider">|</span>
+            
 
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2019-12-06T21:48:35+08:00">
+                2019-12-06
+              </time>
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/12/06/CentOS-Apache-Access-denied的问题/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/12/06/CentOS-Apache-Access-denied的问题/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>搭建完LAMP环境后,在/var/www/html下的info.php可以访问,但是uploadlab文件夹下的文件无法访问</p>
+<a id="more"></a>
+<h1>查看/etc/httpd/logs/error_log</h1>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[Fri Dec 06 21:27:20.196884 2019] [proxy_fcgi:error] [pid 14128:tid 140633612191488] [client 10.10.10.1:20590] AH01071: Got error &apos;Unable to open primary script: /var/www/html/uploadlab/index.php (Permission denied)\n&apos;</span><br></pre></td></tr></table></figure>
+<p>没有权限</p>
+<h1>权限配置</h1>
+<h2 id="httpd-conf配置">httpd.conf配置</h2>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;Directory /&gt;</span><br><span class="line">    Options FollowSymLinks</span><br><span class="line">    AllowOverride none</span><br><span class="line">    Require all granted</span><br><span class="line">&lt;/Directory&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;Directory &quot;/var/www&quot;&gt;</span><br><span class="line">    AllowOverride None</span><br><span class="line">    # Allow open access:</span><br><span class="line">    Require all granted</span><br><span class="line">&lt;/Directory&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># Further relax access to the default document root:</span><br><span class="line">&lt;Directory &quot;/var/www/html&quot;&gt;</span><br><span class="line">    Options Indexes FollowSymLinks</span><br><span class="line">    AllowOverride None</span><br><span class="line">    Require all granted</span><br><span class="line"></span><br><span class="line">&lt;/Directory&gt;</span><br></pre></td></tr></table></figure>
+<p>配置完成应该重启Apache(httpd)<code>systemctl restart httpd</code>
+查看Apache(httpd)状态<code>systemctl status httpd</code></p>
+<p>我这个配置应该没什么问题</p>
+<h2 id="目录权限配置">目录权限配置</h2>
+<p>/var/www/html/uploadlab/每级目录都设置为755
+都可执行</p>
+<h2 id="selinux">SELinux</h2>
+<p>关闭SELINUX
+<code>setenforce 0</code>
+或</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/selinux/config</span><br><span class="line">修改</span><br><span class="line">SELINUX=enforcing</span><br><span class="line">改成</span><br><span class="line">SELINUX=disabled</span><br></pre></td></tr></table></figure>
+<hr>
+<p>参考:<a href="https://blog.csdn.net/moreorless/article/details/7417626" target="_blank" rel="noopener">Apache 403 error, (13)Permission denied: access to / denied问题</a></p>
 
       
     </div>
+    
+    
+    
 
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    K
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://zebra233.github.io/2019/12/06/CentOS-Apache-Access-denied的问题/" title="CentOS Apache Access denied的问题">https://zebra233.github.io/2019/12/06/CentOS-Apache-Access-denied的问题/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Linux/" rel="tag"># Linux</a>
+          
+            <a href="/tags/Apache/" rel="tag"># Apache</a>
+          
+            <a href="/tags/权限管理/" rel="tag"># 权限管理</a>
+          
+            <a href="/tags/SELinux/" rel="tag"># SELinux</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/11/25/ocker-for-Windows-使用-VMware-WorkStation/" rel="next" title="Docker for Windows 使用 VMware WorkStation">
+                <i class="fa fa-chevron-left"></i> Docker for Windows 使用 VMware WorkStation
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -309,6 +477,20 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
 
         </div>
         
@@ -329,8 +511,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -396,6 +587,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-text">查看/etc/httpd/logs/error_log</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-text">权限配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#httpd-conf配置"><span class="nav-text">httpd.conf配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#目录权限配置"><span class="nav-text">目录权限配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#selinux"><span class="nav-text">SELinux</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -525,6 +732,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
@@ -542,6 +753,18 @@
       <script id="dsq-count-scr" src="https://<your-shortname>.disqus.com/count.js" async></script>
     
 
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'https://zebra233.github.io/2019/12/06/CentOS-Apache-Access-denied的问题/';
+          this.page.identifier = '2019/12/06/CentOS-Apache-Access-denied的问题/';
+          this.page.title = 'CentOS Apache Access denied的问题';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://<your-shortname>.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
     
 
   
