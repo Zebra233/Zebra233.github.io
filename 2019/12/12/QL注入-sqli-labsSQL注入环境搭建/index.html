@@ -91,7 +91,7 @@
 <meta property="og:image" content="https://i1.wp.com/2.bp.blogspot.com/-G8nansjZ9BQ/WShA1zssPrI/AAAAAAAAQDs/AHOdFaYTGQQLEAjlaX9A3gRMbC8sqqrJgCEw/s1600/sql4.png?zoom=1.25&w=687&ssl=1">
 <meta property="og:image" content="https://zebra233.github.io/images/%5BSQL%E6%B3%A8%E5%85%A5%5Dsqli-labsSQL%E6%B3%A8%E5%85%A5%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/PHP5ToPHP7replace.png">
 <meta property="og:image" content="https://zebra233.github.io/images/%5BSQL%E6%B3%A8%E5%85%A5%5Dsqli-labsSQL%E6%B3%A8%E5%85%A5%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/sqli-labsSetSuccess.png">
-<meta property="og:updated_time" content="2019-12-12T08:38:01.815Z">
+<meta property="og:updated_time" content="2019-12-12T12:49:05.003Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[SQL注入]sqli-labsSQL注入环境搭建">
 <meta name="twitter:description" content="搭建环境: 虚拟机:CentOS8 APACHE:Apache/2.4.37 (centos) MYSQL:MySQL 8.0 database server PHP:PHP 7.2.11 (cli)">
@@ -325,7 +325,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-12-12T16:38:01+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2019-12-12T20:49:05+08:00">
                 2019-12-12
               </time>
             
@@ -375,10 +375,12 @@
 <p>MYSQL:MySQL 8.0 database server</p>
 <p>PHP:PHP 7.2.11 (cli)</p>
 <a id="more"></a>
+<h1>sqlib-labs版本选择</h1>
 <p><a href="https://github.com/Audi-1/sqli-labs" target="_blank" rel="noopener">PHP5适用的sqli-labs项目Github地址</a></p>
-<p><a href="https://github.com/Rinkish/Sqli_Edited_Version" target="_blank" rel="noopener">PHP7+适用的sqli-labs项目Github地址</a>
-根据你的PHP版本来选择,应该不会出问题</p>
+<p><a href="https://github.com/Rinkish/Sqli_Edited_Version" target="_blank" rel="noopener">PHP7+适用的sqli-labs项目Github地址</a></p>
+<p>根据你的PHP版本来选择,应该不会出问题</p>
 <hr>
+<h1>遇到的问题</h1>
 <p>在搭建sqli-labs环境时遇到了一些问题:</p>
 <p>刚开始我按照Install Instructions安装了第一个PHP5适用的sqli-labs版本
 Install Instructions:</p>
@@ -398,12 +400,14 @@ Install Instructions:</p>
 <p>直接去终端运行sql-connections下的setup-db.php</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[kkk@localhost /]$ cd /var/www/html/sqlilabs/sql-connections</span><br><span class="line">[kkk@localhost sql-connections]$ ls</span><br><span class="line">db-creds.inc   setup-db-challenge.php  sql-connect-1.php  sqli-connect.php</span><br><span class="line">functions.php  setup-db.php            sql-connect.php    test.php</span><br><span class="line">[kkk@localhost sql-connections]$ php ./setup-db</span><br><span class="line">setup-db-challenge.php  setup-db.php            </span><br><span class="line">[kkk@localhost sql-connections]$ php ./setup-db.php</span><br></pre></td></tr></table></figure>
 <p>提醒我
-<img src="https://i1.wp.com/2.bp.blogspot.com/-G8nansjZ9BQ/WShA1zssPrI/AAAAAAAAQDs/AHOdFaYTGQQLEAjlaX9A3gRMbC8sqqrJgCEw/s1600/sql4.png?zoom=1.25&amp;w=687&amp;ssl=1" alt="函数调用错误">
-经过查询发现PHP7已经不支持<code>mysql_connect()</code>这个函数了
-需要去源码里替换很多东西
-<img src="/images/%5BSQL%E6%B3%A8%E5%85%A5%5Dsqli-labsSQL%E6%B3%A8%E5%85%A5%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/PHP5ToPHP7replace.png" alt="替换">
-不过已经有人替我们替换好了也就是开头讲的<a href="https://github.com/Rinkish/Sqli_Edited_Version" target="_blank" rel="noopener">PHP7+适用的sqli-labs项目Github地址</a>
-用这个版本替换掉老版本,再按照上面的Install Instructions走就搭建成功了</p>
+<img src="https://i1.wp.com/2.bp.blogspot.com/-G8nansjZ9BQ/WShA1zssPrI/AAAAAAAAQDs/AHOdFaYTGQQLEAjlaX9A3gRMbC8sqqrJgCEw/s1600/sql4.png?zoom=1.25&amp;w=687&amp;ssl=1" alt="函数调用错误"></p>
+<h1>原因</h1>
+<p>经过查询发现PHP7已经不支持<code>mysql_connect()</code>这个函数了</p>
+<h1>解决方法</h1>
+<h2 id="1-需要去源码里替换很多东西">1. 需要去源码里替换很多东西</h2>
+<p><img src="/images/%5BSQL%E6%B3%A8%E5%85%A5%5Dsqli-labsSQL%E6%B3%A8%E5%85%A5%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/PHP5ToPHP7replace.png" alt="替换"></p>
+<h2 id="2-不过已经有人替我们替换好了也就是开头讲的php7-适用的sqli-labs项目github地址">2. 不过已经有人替我们替换好了也就是开头讲的<a href="https://github.com/Rinkish/Sqli_Edited_Version" target="_blank" rel="noopener">PHP7+适用的sqli-labs项目Github地址</a></h2>
+<p>用这个版本替换掉老版本,再按照上面的Install Instructions走就搭建成功了</p>
 <p>成功的反馈
 <img src="/images/%5BSQL%E6%B3%A8%E5%85%A5%5Dsqli-labsSQL%E6%B3%A8%E5%85%A5%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/sqli-labsSetSuccess.png" alt="成功的反馈"></p>
 <hr>
@@ -532,8 +536,17 @@ Install Instructions:</p>
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -599,6 +612,22 @@ Install Instructions:</p>
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-text">sqlib-labs版本选择</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-text">遇到的问题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-text">原因</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-text">解决方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-需要去源码里替换很多东西"><span class="nav-text">1. 需要去源码里替换很多东西</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-不过已经有人替我们替换好了也就是开头讲的php7-适用的sqli-labs项目github地址"><span class="nav-text">2. 不过已经有人替我们替换好了也就是开头讲的PHP7+适用的sqli-labs项目Github地址</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
