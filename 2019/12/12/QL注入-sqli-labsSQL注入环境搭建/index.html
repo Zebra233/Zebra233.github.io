@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="SQL注入,环境搭建,Web安全,">
 
 
 
@@ -79,13 +79,23 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="Zebra">
-<meta property="og:url" content="https://zebra233.github.io/tags/Linux/index.html">
+<meta name="description" content="搭建环境: 虚拟机:CentOS8 APACHE:Apache/2.4.37 (centos) MYSQL:MySQL 8.0 database server PHP:PHP 7.2.11 (cli)">
+<meta name="keywords" content="SQL注入,环境搭建,Web安全">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[SQL注入]sqli-labsSQL注入环境搭建">
+<meta property="og:url" content="https://zebra233.github.io/2019/12/12/QL注入-sqli-labsSQL注入环境搭建/index.html">
 <meta property="og:site_name" content="Zebra">
+<meta property="og:description" content="搭建环境: 虚拟机:CentOS8 APACHE:Apache/2.4.37 (centos) MYSQL:MySQL 8.0 database server PHP:PHP 7.2.11 (cli)">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://i1.wp.com/1.bp.blogspot.com/-moqGZju1WHU/WShA1kYCLRI/AAAAAAAAQDk/2opRMc-PhqoZ1eIDxv8mR9MZt1UYpliBgCEw/s1600/sql2.png?zoom=1.25&w=687&ssl=1">
+<meta property="og:image" content="https://i1.wp.com/2.bp.blogspot.com/-G8nansjZ9BQ/WShA1zssPrI/AAAAAAAAQDs/AHOdFaYTGQQLEAjlaX9A3gRMbC8sqqrJgCEw/s1600/sql4.png?zoom=1.25&w=687&ssl=1">
+<meta property="og:image" content="https://zebra233.github.io/images/%5BSQL%E6%B3%A8%E5%85%A5%5Dsqli-labsSQL%E6%B3%A8%E5%85%A5%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/PHP5ToPHP7replace.png">
+<meta property="og:image" content="https://zebra233.github.io/images/%5BSQL%E6%B3%A8%E5%85%A5%5Dsqli-labsSQL%E6%B3%A8%E5%85%A5%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/sqli-labsSetSuccess.png">
+<meta property="og:updated_time" content="2019-12-12T08:38:01.815Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Zebra">
+<meta name="twitter:title" content="[SQL注入]sqli-labsSQL注入环境搭建">
+<meta name="twitter:description" content="搭建环境: 虚拟机:CentOS8 APACHE:Apache/2.4.37 (centos) MYSQL:MySQL 8.0 database server PHP:PHP 7.2.11 (cli)">
+<meta name="twitter:image" content="https://i1.wp.com/1.bp.blogspot.com/-moqGZju1WHU/WShA1kYCLRI/AAAAAAAAQDk/2opRMc-PhqoZ1eIDxv8mR9MZt1UYpliBgCEw/s1600/sql2.png?zoom=1.25&w=687&ssl=1">
 
 
 
@@ -115,13 +125,13 @@
 
 
 
-  <link rel="canonical" href="https://zebra233.github.io/tags/Linux/">
+  <link rel="canonical" href="https://zebra233.github.io/2019/12/12/QL注入-sqli-labsSQL注入环境搭建/">
 
 
 
 
 
-  <title>标签: Linux | Zebra</title>
+  <title>[SQL注入]sqli-labsSQL注入环境搭建 | Zebra</title>
   
 
 
@@ -140,7 +150,7 @@
     
   
 
-  <div class="container sidebar-position-right ">
+  <div class="container sidebar-position-right page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -256,52 +266,231 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block tag">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>Linux<small>标签</small>
-        </h1>
-      </div>
+  
 
-      
-        
+  
+  
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zebra233.github.io/2019/12/12/QL注入-sqli-labsSQL注入环境搭建/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="K">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zebra">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2019/12/06/CentOS-Apache-Access-denied的问题/" itemprop="url">
-              
-                <span itemprop="name">CentOS Apache Access denied的问题</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">[SQL注入]sqli-labsSQL注入环境搭建</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-12-06T21:34:00+08:00" content="2019-12-06">
-          12-06
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-12-12T16:11:00+08:00">
+                2019-12-12
+              </time>
+            
 
-    </header>
-  </article>
+            
+              <span class="post-meta-divider">|</span>
+            
 
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2019-12-12T16:38:01+08:00">
+                2019-12-12
+              </time>
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/12/12/QL注入-sqli-labsSQL注入环境搭建/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/12/12/QL注入-sqli-labsSQL注入环境搭建/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>搭建环境:
+虚拟机:CentOS8</p>
+<p>APACHE:Apache/2.4.37 (centos)</p>
+<p>MYSQL:MySQL 8.0 database server</p>
+<p>PHP:PHP 7.2.11 (cli)</p>
+<a id="more"></a>
+<p><a href="https://github.com/Audi-1/sqli-labs" target="_blank" rel="noopener">PHP5适用的sqli-labs项目Github地址</a></p>
+<p><a href="https://github.com/Rinkish/Sqli_Edited_Version" target="_blank" rel="noopener">PHP7+适用的sqli-labs项目Github地址</a>
+根据你的PHP版本来选择,应该不会出问题</p>
+<hr>
+<p>在搭建sqli-labs环境时遇到了一些问题:</p>
+<p>刚开始我按照Install Instructions安装了第一个PHP5适用的sqli-labs版本
+Install Instructions:</p>
+<ol>
+<li>Unzip the contents inside the apache folder, for example under /var/www</li>
+<li>This will create a folder sql-labs under it. else you can use git command from within /var/www folder. /var/www folder and then use following command&gt; git clone <a href="https://github.com/Audi-1/sqli-labs.git" target="_blank" rel="noopener">https://github.com/Audi-1/sqli-labs.git</a> sqli-labs</li>
+<li>Open the file &quot;db-creds.inc&quot; which is under sql-connections folder inside the sql-labs folder.</li>
+<li>Update your MYSQL database username and password.(default for Backtrack are used root:toor)</li>
+<li>From your browser access the sql-labs folder to load index.html</li>
+<li>Click on the link setup/resetDB to create database, create tables and populate Data.</li>
+<li>Labs ready to be used, click on lesson number to open the lesson page.</li>
+<li>Enjoy the labs</li>
+</ol>
+<p>发现出现了一些错误</p>
+<p><img src="https://i1.wp.com/1.bp.blogspot.com/-moqGZju1WHU/WShA1kYCLRI/AAAAAAAAQDk/2opRMc-PhqoZ1eIDxv8mR9MZt1UYpliBgCEw/s1600/sql2.png?zoom=1.25&amp;w=687&amp;ssl=1" alt="错误的反馈"></p>
+<p>只有第一句<code>SETTING UP THE DATABASE SCHEMA AND POPULATING DATA IN TABLES:</code>没有下面那些提醒</p>
+<p>直接去终端运行sql-connections下的setup-db.php</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[kkk@localhost /]$ cd /var/www/html/sqlilabs/sql-connections</span><br><span class="line">[kkk@localhost sql-connections]$ ls</span><br><span class="line">db-creds.inc   setup-db-challenge.php  sql-connect-1.php  sqli-connect.php</span><br><span class="line">functions.php  setup-db.php            sql-connect.php    test.php</span><br><span class="line">[kkk@localhost sql-connections]$ php ./setup-db</span><br><span class="line">setup-db-challenge.php  setup-db.php            </span><br><span class="line">[kkk@localhost sql-connections]$ php ./setup-db.php</span><br></pre></td></tr></table></figure>
+<p>提醒我
+<img src="https://i1.wp.com/2.bp.blogspot.com/-G8nansjZ9BQ/WShA1zssPrI/AAAAAAAAQDs/AHOdFaYTGQQLEAjlaX9A3gRMbC8sqqrJgCEw/s1600/sql4.png?zoom=1.25&amp;w=687&amp;ssl=1" alt="函数调用错误">
+经过查询发现PHP7已经不支持<code>mysql_connect()</code>这个函数了
+需要去源码里替换很多东西
+<img src="/images/%5BSQL%E6%B3%A8%E5%85%A5%5Dsqli-labsSQL%E6%B3%A8%E5%85%A5%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/PHP5ToPHP7replace.png" alt="替换">
+不过已经有人替我们替换好了也就是开头讲的<a href="https://github.com/Rinkish/Sqli_Edited_Version" target="_blank" rel="noopener">PHP7+适用的sqli-labs项目Github地址</a>
+用这个版本替换掉老版本,再按照上面的Install Instructions走就搭建成功了</p>
+<p>成功的反馈
+<img src="/images/%5BSQL%E6%B3%A8%E5%85%A5%5Dsqli-labsSQL%E6%B3%A8%E5%85%A5%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/sqli-labsSetSuccess.png" alt="成功的反馈"></p>
+<hr>
+<p><a href="https://github.com/Audi-1/sqli-labs" target="_blank" rel="noopener">PHP5适用的sqli-labs项目Github地址</a></p>
+<p><a href="https://github.com/Rinkish/Sqli_Edited_Version" target="_blank" rel="noopener">PHP7+适用的sqli-labs项目Github地址</a></p>
+<p><a href="https://www.hackingarticles.in/set-sqli-lab-kali/" target="_blank" rel="noopener">How to set up SQLI Lab in Kali</a></p>
 
       
     </div>
+    
+    
+    
 
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    K
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://zebra233.github.io/2019/12/12/QL注入-sqli-labsSQL注入环境搭建/" title="[SQL注入]sqli-labsSQL注入环境搭建">https://zebra233.github.io/2019/12/12/QL注入-sqli-labsSQL注入环境搭建/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/SQL注入/" rel="tag"># SQL注入</a>
+          
+            <a href="/tags/环境搭建/" rel="tag"># 环境搭建</a>
+          
+            <a href="/tags/Web安全/" rel="tag"># Web安全</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/12/11/lask-Flask-WTF的简单尝试/" rel="next" title="[Flask]Flask-WTF的简单尝试">
+                <i class="fa fa-chevron-left"></i> [Flask]Flask-WTF的简单尝试
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -309,6 +498,20 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
 
         </div>
         
@@ -525,6 +728,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
@@ -542,6 +749,18 @@
       <script id="dsq-count-scr" src="https://<your-shortname>.disqus.com/count.js" async></script>
     
 
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'https://zebra233.github.io/2019/12/12/QL注入-sqli-labsSQL注入环境搭建/';
+          this.page.identifier = '2019/12/12/QL注入-sqli-labsSQL注入环境搭建/';
+          this.page.title = '[SQL注入]sqli-labsSQL注入环境搭建';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://<your-shortname>.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
     
 
   
