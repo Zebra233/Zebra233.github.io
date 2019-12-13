@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="渗透,">
+  <meta name="keywords" content="Flask,Web,ajax,前端,">
 
 
 
@@ -79,18 +79,22 @@
 
 
 
-<meta name="description" content="为之后的实验做准备">
-<meta name="keywords" content="渗透">
+<meta name="description" content="之前用过Flask-WTF来实现前后端的数据交互还有ajax等交互方式">
+<meta name="keywords" content="Flask,Web,ajax,前端">
 <meta property="og:type" content="article">
-<meta property="og:title" content="[渗透学习]3.渗透测试实验环境">
-<meta property="og:url" content="https://zebra233.github.io/2019/08/04/渗透学习-3-渗透测试实验环境/index.html">
+<meta property="og:title" content="[Flask]Flask前后端数据交互">
+<meta property="og:url" content="https://zebra233.github.io/2019/12/13/Flask-Flask前后端数据交互/index.html">
 <meta property="og:site_name" content="Zebra">
-<meta property="og:description" content="为之后的实验做准备">
+<meta property="og:description" content="之前用过Flask-WTF来实现前后端的数据交互还有ajax等交互方式">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-09-04T13:17:35.838Z">
+<meta property="og:image" content="https://zebra233.github.io/images/%5BFlask%5DFlask%E5%89%8D%E5%90%8E%E7%AB%AF%E6%95%B0%E6%8D%AE%E4%BA%A4%E4%BA%92/request.png">
+<meta property="og:image" content="https://zebra233.github.io/images/%5BFlask%5DFlask%E5%89%8D%E5%90%8E%E7%AB%AF%E6%95%B0%E6%8D%AE%E4%BA%A4%E4%BA%92/ajax.png">
+<meta property="og:image" content="https://zebra233.github.io/images/%5BFlask%5DFlask%E5%89%8D%E5%90%8E%E7%AB%AF%E6%95%B0%E6%8D%AE%E4%BA%A4%E4%BA%92/JSON.png">
+<meta property="og:updated_time" content="2019-12-13T12:46:20.190Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="[渗透学习]3.渗透测试实验环境">
-<meta name="twitter:description" content="为之后的实验做准备">
+<meta name="twitter:title" content="[Flask]Flask前后端数据交互">
+<meta name="twitter:description" content="之前用过Flask-WTF来实现前后端的数据交互还有ajax等交互方式">
+<meta name="twitter:image" content="https://zebra233.github.io/images/%5BFlask%5DFlask%E5%89%8D%E5%90%8E%E7%AB%AF%E6%95%B0%E6%8D%AE%E4%BA%A4%E4%BA%92/request.png">
 
 
 
@@ -120,13 +124,13 @@
 
 
 
-  <link rel="canonical" href="https://zebra233.github.io/2019/08/04/渗透学习-3-渗透测试实验环境/">
+  <link rel="canonical" href="https://zebra233.github.io/2019/12/13/Flask-Flask前后端数据交互/">
 
 
 
 
 
-  <title>[渗透学习]3.渗透测试实验环境 | Zebra</title>
+  <title>[Flask]Flask前后端数据交互 | Zebra</title>
   
 
 
@@ -275,7 +279,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zebra233.github.io/2019/08/04/渗透学习-3-渗透测试实验环境/">
+    <link itemprop="mainEntityOfPage" href="https://zebra233.github.io/2019/12/13/Flask-Flask前后端数据交互/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="K">
@@ -292,7 +296,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">[渗透学习]3.渗透测试实验环境</h1>
+          <h1 class="post-title" itemprop="name headline">[Flask]Flask前后端数据交互</h1>
         
 
         <div class="post-meta">
@@ -304,8 +308,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-04T15:09:00+08:00">
-                2019-08-04
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-12-13T19:01:00+08:00">
+                2019-12-13
               </time>
             
 
@@ -320,8 +324,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-09-04T21:17:35+08:00">
-                2019-09-04
+              <time title="更新于" itemprop="dateModified" datetime="2019-12-13T20:46:20+08:00">
+                2019-12-13
               </time>
             
           </span>
@@ -335,8 +339,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2019/08/04/渗透学习-3-渗透测试实验环境/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/08/04/渗透学习-3-渗透测试实验环境/" itemprop="commentCount"></span>
+                <a href="/2019/12/13/Flask-Flask前后端数据交互/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/12/13/Flask-Flask前后端数据交互/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -364,15 +368,59 @@
       
 
       
-        <p>为之后的实验做准备</p>
+        <p>之前用过Flask-WTF来实现前后端的数据交互还有ajax等交互方式</p>
 <a id="more"></a>
-<h1>搭建实验环境</h1>
+<p>Flask与ajax（jQuery）交互的几种方法：$.post、$.get、$.getJSON 、$.ajax、 $.load</p>
+<p>$.ajax()方法是jQuery最底层的Ajax实现，因此可以用它来代替前面的所有方法。</p>
+<p>以下主要介绍$.ajax()和$.getJSON()</p>
+<h1>$.ajax()</h1>
+<p>使用Ajax的最大优点，就是能在不更新整个页面的前提下维护数据。这使得Web应用程序更为迅捷地回应用户动作，并避免了在网络上发送那些没有改变的信息。</p>
+<h2 id="前端">前端</h2>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;script typr=text/javascript&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        $(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">            $(<span class="string">"#btnSearch"</span>).bind(<span class="string">'click'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">                <span class="keyword">var</span> keyword = &#123;</span><br><span class="line">                    <span class="string">"value"</span>: $(<span class="string">"#inSearch"</span>).val(),</span><br><span class="line">                &#125;;</span><br><span class="line">                <span class="keyword">var</span> keyJS = <span class="built_in">JSON</span>.stringify(keyword);</span><br><span class="line">                $.ajax(&#123;</span><br><span class="line">                    url: <span class="string">'_ajax'</span>,</span><br><span class="line">                    type: <span class="string">'POST'</span>,</span><br><span class="line">                    data: keyJS,</span><br><span class="line">                    contentType: <span class="string">'application/json'</span>,</span><br><span class="line">                    success: <span class="function"><span class="keyword">function</span> (<span class="params">data</span>) </span>&#123;</span><br><span class="line">                        alert(data.value + data.value2);</span><br><span class="line"></span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;);</span><br><span class="line">            &#125;)</span><br><span class="line">        &#125;);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    &lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
+<p>主要介绍一下contentType参数</p>
+<p>下面是几个常见的Content-Type:</p>
 <ol>
-<li><a href="https://pan.baidu.com/s/1PITRdzWU1_IoWRTpBcqTLA" target="_blank" rel="noopener">所需的虚拟机(百度网盘链接)</a></li>
-<li>配置要求(按魔鬼训练营书上的要求配置,部分配置已经配置完毕.详见<a href="https://blog.csdn.net/Kevinhanser/article/details/77504717" target="_blank" rel="noopener">参考资料</a>)</li>
+<li>text/html</li>
+<li>text/plain</li>
+<li>text/css</li>
+<li>text/javascript</li>
+<li>application/x-www-form-urlencoded</li>
+<li>multipart/form-data</li>
+<li>application/json</li>
+<li>application/xml</li>
 </ol>
+<p>...</p>
+<p>前面几个都很好理解，都是html，css，javascript的文件类型，后面四个是POST的发包方式。
+详细介绍在<a href="https://segmentfault.com/a/1190000003002851" target="_blank" rel="noopener">理解HTTP之Content-Type</a></p>
+<h2 id="后端">后端</h2>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@app.route('/_ajax',methods = ['GET','POST'])</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">ajax</span><span class="params">()</span>:</span></span><br><span class="line">        keydata = request.get_json()</span><br><span class="line">        keydata[<span class="string">'value2'</span>] = <span class="string">"hhh"</span></span><br><span class="line">        <span class="keyword">return</span> jsonify(keydata)</span><br></pre></td></tr></table></figure>
+<p>get_json()获取 获取 POST 请求参数(json数据)
+最后将数据用jsonify转换为json数据返回</p>
+<p>如果是GET请求,可以用request.args.get('XXX')来接收数据
+<img src="/images/%5BFlask%5DFlask%E5%89%8D%E5%90%8E%E7%AB%AF%E6%95%B0%E6%8D%AE%E4%BA%A4%E4%BA%92/request.png" alt="request常用参数"></p>
+<h3 id="在前端验证是否成功">在前端验证是否成功</h3>
+<p><img src="/images/%5BFlask%5DFlask%E5%89%8D%E5%90%8E%E7%AB%AF%E6%95%B0%E6%8D%AE%E4%BA%A4%E4%BA%92/ajax.png" alt="ajax"></p>
+<h1>$.getJSON()</h1>
+<h2 id="前端-v2">前端</h2>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&lt;script typr=text/javascript&gt;</span><br><span class="line">        $(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">            $(<span class="string">"#btnSearch"</span>).bind(<span class="string">'click'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span></span><br><span class="line"><span class="function">            </span>&#123;</span><br><span class="line">                $.getJSON</span><br><span class="line">                (</span><br><span class="line">                    <span class="string">'/_JSON'</span>,</span><br><span class="line">                    &#123;</span><br><span class="line">                        kw: $(<span class="string">'#inSearch'</span>).val()</span><br><span class="line">                    &#125;,</span><br><span class="line">                    <span class="function"><span class="keyword">function</span> (<span class="params">data</span>)</span></span><br><span class="line"><span class="function">                    </span>&#123;</span><br><span class="line">                        alert(data.value + data.value2);</span><br><span class="line">                    &#125;</span><br><span class="line">                );</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            &#125;)</span><br><span class="line">        &#125;);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    &lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="后端-v2">后端</h2>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@app.route('/_JSON')</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">JSON</span><span class="params">()</span>:</span></span><br><span class="line">        keydata = request.args.get(<span class="string">'kw'</span>)</span><br><span class="line">        print(keydata)</span><br><span class="line">        <span class="keyword">return</span> jsonify(&#123;<span class="string">'value'</span>:keydata,<span class="string">'value2'</span>:<span class="string">'hhhh'</span>&#125;)</span><br></pre></td></tr></table></figure>
+<h3 id="在前端验证是否成功-v2">在前端验证是否成功</h3>
+<p><img src="/images/%5BFlask%5DFlask%E5%89%8D%E5%90%8E%E7%AB%AF%E6%95%B0%E6%8D%AE%E4%BA%A4%E4%BA%92/JSON.png" alt="ajax"></p>
+<h1>ajax与getJSON的不同之处</h1>
+<p>$.ajax()方法是jQuery最底层的Ajax实现，因此可以用它来代替前面的所有方法。</p>
+<p>1.URL参数不同</p>
+<p>$.ajax()的URL不会带有参数<code>http://127.0.0.1:5000/_ajax</code></p>
+<p>$.getJSON()的URl会带有参数<code>http://127.0.0.1:5000/_JSON?kw=aaaa</code></p>
+<p>2.需要解析的东西不同</p>
+<p>$.ajax()方法需解析Json字符串，</p>
+<p>$.getJSON()方法需解析JSON对象。</p>
 <hr>
-<p><a href="https://blog.csdn.net/Kevinhanser/article/details/77504717" target="_blank" rel="noopener">参考资料</a></p>
+<p>参考:</p>
+<p><a href="https://blog.csdn.net/csdn_yudong/article/details/52683018" target="_blank" rel="noopener">JQuery中的$.getScript()、$.getJson()和$.ajax()方法</a></p>
+<p><a href="https://blog.csdn.net/qq_36769100/article/details/70284053" target="_blank" rel="noopener">$.ajax与$.getJson的区别</a></p>
+<p><a href="https://www.cnblogs.com/dowinning/archive/2012/04/19/json-jsonp-jquery.html" target="_blank" rel="noopener">【原创】说说JSON和JSONP，也许你会豁然开朗，含jQuery用例</a></p>
+<p><a href="https://blog.csdn.net/xiemanR/article/details/53812535" target="_blank" rel="noopener">Flask与ajax（jQuery）交互的几种方法：$.post、$.get、$.getJSON 、$.ajax、 $.load</a></p>
 
       
     </div>
@@ -393,7 +441,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://zebra233.github.io/2019/08/04/渗透学习-3-渗透测试实验环境/" title="[渗透学习]3.渗透测试实验环境">https://zebra233.github.io/2019/08/04/渗透学习-3-渗透测试实验环境/</a>
+    <a href="https://zebra233.github.io/2019/12/13/Flask-Flask前后端数据交互/" title="[Flask]Flask前后端数据交互">https://zebra233.github.io/2019/12/13/Flask-Flask前后端数据交互/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -408,7 +456,13 @@
       
         <div class="post-tags">
           
-            <a href="/tags/渗透/" rel="tag"># 渗透</a>
+            <a href="/tags/Flask/" rel="tag"># Flask</a>
+          
+            <a href="/tags/Web/" rel="tag"># Web</a>
+          
+            <a href="/tags/ajax/" rel="tag"># ajax</a>
+          
+            <a href="/tags/前端/" rel="tag"># 前端</a>
           
         </div>
       
@@ -421,8 +475,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/08/04/渗透学习-2-对Winxp的渗透攻击/" rel="next" title="[渗透学习]2.对Winxp的渗透攻击">
-                <i class="fa fa-chevron-left"></i> [渗透学习]2.对Winxp的渗透攻击
+              <a href="/2019/12/12/QL注入-sqli-labsSQL注入环境搭建/" rel="next" title="[SQL注入]sqli-labsSQL注入环境搭建">
+                <i class="fa fa-chevron-left"></i> [SQL注入]sqli-labsSQL注入环境搭建
               </a>
             
           </div>
@@ -430,10 +484,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/08/04/渗透学习-4-情报搜集/" rel="prev" title="[渗透学习]4.情报搜集">
-                [渗透学习]4.情报搜集 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -581,7 +631,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-text">搭建实验环境</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-text">$.ajax()</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#前端"><span class="nav-text">前端</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#后端"><span class="nav-text">后端</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#在前端验证是否成功"><span class="nav-text">在前端验证是否成功</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-text">$.getJSON()</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#前端-v2"><span class="nav-text">前端</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#后端-v2"><span class="nav-text">后端</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#在前端验证是否成功-v2"><span class="nav-text">在前端验证是否成功</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-text">ajax与getJSON的不同之处</span></a></li></ol></div>
             
 
           </div>
@@ -740,9 +790,9 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'https://zebra233.github.io/2019/08/04/渗透学习-3-渗透测试实验环境/';
-          this.page.identifier = '2019/08/04/渗透学习-3-渗透测试实验环境/';
-          this.page.title = '[渗透学习]3.渗透测试实验环境';
+          this.page.url = 'https://zebra233.github.io/2019/12/13/Flask-Flask前后端数据交互/';
+          this.page.identifier = '2019/12/13/Flask-Flask前后端数据交互/';
+          this.page.title = '[Flask]Flask前后端数据交互';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://<your-shortname>.disqus.com/embed.js';
