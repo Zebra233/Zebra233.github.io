@@ -1,0 +1,1153 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="爬虫,Python,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="网上有很多免费SS/V2RAY账号分享的网站,但大多数账号会在几个小时后就重置或者修改密码.所以我想写个python爬虫脚本来自动更新. 💻github链接">
+<meta name="keywords" content="爬虫,Python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[Python]爬虫-爬取免费SS账号添加到Clash中">
+<meta property="og:url" content="https://zebra233.github.io/2020/01/22/ython-爬虫-爬取免费SS账号添加到Clash中/index.html">
+<meta property="og:site_name" content="Zebra">
+<meta property="og:description" content="网上有很多免费SS/V2RAY账号分享的网站,但大多数账号会在几个小时后就重置或者修改密码.所以我想写个python爬虫脚本来自动更新. 💻github链接">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://zebra233.github.io/images/%5BPython%5D%E7%88%AC%E8%99%AB-%E7%88%AC%E5%8F%96%E5%85%8D%E8%B4%B9SS%E8%B4%A6%E5%8F%B7%E6%B7%BB%E5%8A%A0%E5%88%B0Clash%E4%B8%AD/ssinfoAndQR.png">
+<meta property="og:image" content="https://zebra233.github.io/images/%5BPython%5D%E7%88%AC%E8%99%AB-%E7%88%AC%E5%8F%96%E5%85%8D%E8%B4%B9SS%E8%B4%A6%E5%8F%B7%E6%B7%BB%E5%8A%A0%E5%88%B0Clash%E4%B8%AD/QR.png">
+<meta property="og:image" content="https://zebra233.github.io/images/%5BPython%5D%E7%88%AC%E8%99%AB-%E7%88%AC%E5%8F%96%E5%85%8D%E8%B4%B9SS%E8%B4%A6%E5%8F%B7%E6%B7%BB%E5%8A%A0%E5%88%B0Clash%E4%B8%AD/clash.png">
+<meta property="og:updated_time" content="2020-01-22T06:48:40.117Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="[Python]爬虫-爬取免费SS账号添加到Clash中">
+<meta name="twitter:description" content="网上有很多免费SS/V2RAY账号分享的网站,但大多数账号会在几个小时后就重置或者修改密码.所以我想写个python爬虫脚本来自动更新. 💻github链接">
+<meta name="twitter:image" content="https://zebra233.github.io/images/%5BPython%5D%E7%88%AC%E8%99%AB-%E7%88%AC%E5%8F%96%E5%85%8D%E8%B4%B9SS%E8%B4%A6%E5%8F%B7%E6%B7%BB%E5%8A%A0%E5%88%B0Clash%E4%B8%AD/ssinfoAndQR.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"right","display":"hide","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://zebra233.github.io/2020/01/22/ython-爬虫-爬取免费SS账号添加到Clash中/">
+
+
+
+
+
+  <title>[Python]爬虫-爬取免费SS账号添加到Clash中 | Zebra</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Zebra</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zebra233.github.io/2020/01/22/ython-爬虫-爬取免费SS账号添加到Clash中/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="K">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zebra">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">[Python]爬虫-爬取免费SS账号添加到Clash中</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-01-22T14:03:00+08:00">
+                2020-01-22
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2020-01-22T14:48:40+08:00">
+                2020-01-22
+              </time>
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2020/01/22/ython-爬虫-爬取免费SS账号添加到Clash中/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/01/22/ython-爬虫-爬取免费SS账号添加到Clash中/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>网上有很多免费SS/V2RAY账号分享的网站,但大多数账号会在几个小时后就重置或者修改密码.所以我想写个python爬虫脚本来自动更新.</p>
+<p><a href="https://gist.github.com/Zebra233/d71dd351dd8f0d1cc3dbe9a757b57c6b" target="_blank" rel="noopener">💻github链接</a></p>
+<a id="more"></a>
+<h1>网站、工具和用到的python库</h1>
+<ol>
+<li>网站以 <a href="https://get.ishadowx.biz" target="_blank" rel="noopener">https://get.ishadowx.biz</a> (这个网站的网址可能会有变更)为例</li>
+<li>访问上面这个网站需要<em>代理</em></li>
+<li>代理及测速工具:Clash for Windows</li>
+<li>python库:</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests, re, json, base64</span><br><span class="line"><span class="keyword">from</span> bs4 <span class="keyword">import</span> BeautifulSoup</span><br><span class="line"><span class="keyword">import</span> oyaml <span class="keyword">as</span> yaml  <span class="comment"># 能按照json中的顺序生成yaml文件(旧的yaml已停止维护)</span></span><br></pre></td></tr></table></figure>
+<h1>爬虫基本思路</h1>
+<h2 id="获取二维码">获取二维码</h2>
+<p><img src="/images/%5BPython%5D%E7%88%AC%E8%99%AB-%E7%88%AC%E5%8F%96%E5%85%8D%E8%B4%B9SS%E8%B4%A6%E5%8F%B7%E6%B7%BB%E5%8A%A0%E5%88%B0Clash%E4%B8%AD/ssinfoAndQR.png" alt="账号信息及二维码">
+<img src="/images/%5BPython%5D%E7%88%AC%E8%99%AB-%E7%88%AC%E5%8F%96%E5%85%8D%E8%B4%B9SS%E8%B4%A6%E5%8F%B7%E6%B7%BB%E5%8A%A0%E5%88%B0Clash%E4%B8%AD/QR.png" alt="upload successful">
+可以看到对于SS账号来说可以直接爬到账号信息以及二维码,但是对于V2RAY账号来说只能爬到二维码.
+虽然Clash不支持V2RAY但我还是想将SS和V2RAY一起爬了.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 获得二维码url</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_img_url</span><span class="params">()</span>:</span></span><br><span class="line">    img_dict = &#123;&#125;</span><br><span class="line">    url = <span class="string">"https://get.ishadowx.biz/"</span></span><br><span class="line">    headers = &#123;</span><br><span class="line">        <span class="string">"User-Agent"</span>: <span class="string">"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.117 Safari/537.36"</span>,</span><br><span class="line">    &#125;</span><br><span class="line">    r = requests.get(url, headers=headers)</span><br><span class="line">    soup = BeautifulSoup(r.text)</span><br><span class="line">    img_url = soup.find_all(<span class="string">"a"</span>, string=<span class="string">"Click to view QR Code"</span>)</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(len(img_url)):</span><br><span class="line">        img_url[i] = url + img_url[i][<span class="string">'href'</span>]</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(len(img_url)):</span><br><span class="line">        img_dict[<span class="string">'ishadowx'</span> + str(i)] = img_url[i]</span><br><span class="line">    <span class="keyword">with</span> open(<span class="string">"./img_url.json"</span>, <span class="string">'w'</span>) <span class="keyword">as</span> dump_f:</span><br><span class="line">        json.dump(img_dict, dump_f)</span><br></pre></td></tr></table></figure>
+<p>爬取二维码很简单,我最终将爬到的数据保存为了json文件</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"ishadowx0"</span>: <span class="string">"https://get.ishadowx.biz/img/qr/usa-EiuWfD.png"</span>,</span><br><span class="line">  <span class="attr">"ishadowx1"</span>: <span class="string">"https://get.ishadowx.biz/img/qr/usb-UXFnfz.png"</span>,</span><br><span class="line">  <span class="attr">"ishadowx2"</span>: <span class="string">"https://get.ishadowx.biz/img/qr/usc-npSTIc.png"</span>,</span><br><span class="line">  <span class="attr">"ishadowx3"</span>: <span class="string">"https://get.ishadowx.biz/img/qr/vmessa_U2RS2.png"</span>,</span><br><span class="line">  <span class="attr">"ishadowx4"</span>: <span class="string">"https://get.ishadowx.biz/img/qr/vmessb_861XV.png"</span>,</span><br><span class="line">  <span class="attr">"ishadowx5"</span>: <span class="string">"https://get.ishadowx.biz/img/qr/vmessc_zEQ2w.png"</span>,</span><br><span class="line">  <span class="attr">"ishadowx6"</span>: <span class="string">"https://get.ishadowx.biz/img/qr/sga-2hUsPU.png"</span>,</span><br><span class="line">  <span class="attr">"ishadowx7"</span>: <span class="string">"https://get.ishadowx.biz/img/qr/sgb-Pk5chh.png"</span>,</span><br><span class="line">  <span class="attr">"ishadowx8"</span>: <span class="string">"https://get.ishadowx.biz/img/qr/sgc-6CM1O2.png"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="解析二维码">解析二维码</h2>
+<p>这一步我直接使用了在线的api:<a href="https://api.qzone.work/" target="_blank" rel="noopener">莫名API</a></p>
+<p>api用法:<a href="https://api.qzone.work/doc/qrdecode.html" target="_blank" rel="noopener">二维码在线识别</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"># 利用api解析二维码为base64编码的字符串</span><br><span class="line">def parsing():</span><br><span class="line">    ss_dict = &#123;&#125;</span><br><span class="line">    base_url = &quot;https://api.qzone.work/api/qr.decode?img_url=&quot;</span><br><span class="line">    with open(&quot;./img_url.json&quot;, &apos;r&apos;) as load_f:</span><br><span class="line">        img_dict = json.load(load_f)</span><br><span class="line">    for i in img_dict:</span><br><span class="line">        par_url = base_url + img_dict[i]</span><br><span class="line">        r = requests.get(par_url)</span><br><span class="line">        ss = r.json()</span><br><span class="line">        if ss[&quot;msg&quot;] == &quot;SUCCESS!&quot; and re.match(&apos;ss://.*?&apos;, ss[&quot;data&quot;][&quot;text&quot;]):</span><br><span class="line">            ss_dict[i] = ss[&quot;data&quot;][&quot;text&quot;]</span><br><span class="line">    with open(&quot;./ss_url.json&quot;, &apos;w&apos;) as dump_f:</span><br><span class="line">        json.dump(ss_dict, dump_f)</span><br></pre></td></tr></table></figure>
+<p>直接调用即可,最终保存为json文件</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"ishadowx0"</span>: <span class="string">"ss://YWVzLTI1Ni1jZmI6aXN4Lnl0LTQyNzE4Mzc5QGEuaXN4Yi50b3A6MTk2NTMK"</span>,</span><br><span class="line">  <span class="attr">"ishadowx1"</span>: <span class="string">"ss://YWVzLTI1Ni1jZmI6aXN4Lnl0LTcyMjQ0NDE1QGIuaXN4Yi50b3A6MTkxMjMK"</span>,</span><br><span class="line">  <span class="attr">"ishadowx2"</span>: <span class="string">"ss://YWVzLTI1Ni1jZmI6aXN4Lnl0LTc4MDUyMzEzQGMuaXN4Yi50b3A6MTY2NzQK"</span>,</span><br><span class="line">  <span class="attr">"ishadowx6"</span>: <span class="string">"ss://YWVzLTI1Ni1jZmI6aXN4Lnl0LTIwMDMzMTUwQGEuaXN4Yy50b3A6MTIxODgK"</span>,</span><br><span class="line">  <span class="attr">"ishadowx7"</span>: <span class="string">"ss://YWVzLTI1Ni1jZmI6aXN4Lnl0LTY0NTIzMDg0QGIuaXN4Yy50b3A6MTkzMjUK"</span>,</span><br><span class="line">  <span class="attr">"ishadowx8"</span>: <span class="string">"ss://YWVzLTI1Ni1jZmI6aXN4Lnl0LTg3MTc1MjYxQGMuaXN4Yy50b3A6MTEyMzQK"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="base64解析">BASE64解析</h2>
+<p>二维码解析得到的是BASE64的字符串需要继续解析为我要的账号信息.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 解析得到的base64字符串,并转换为json存储</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">getinfo</span><span class="params">()</span>:</span></span><br><span class="line">    ssinfo_dict = &#123;&#125;</span><br><span class="line">    <span class="keyword">with</span> open(<span class="string">"./ss_url.json"</span>, <span class="string">'r'</span>) <span class="keyword">as</span> load_f:</span><br><span class="line">        ss_dict = json.load(load_f)</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> ss_dict:</span><br><span class="line">        ssurl = ss_dict[i][<span class="number">5</span>:]</span><br><span class="line">        decoded_ssurl = base64.urlsafe_b64decode(ssurl)</span><br><span class="line">        pattern = re.compile(<span class="string">r'b\'(.*?):(.*?)@(.*?):(\d+)'</span>)</span><br><span class="line">        match_ss = pattern.match(str(decoded_ssurl))</span><br><span class="line">        ssinfo_dict[i] = &#123;<span class="string">'Encryption'</span>: match_ss.group(<span class="number">1</span>),</span><br><span class="line">                          <span class="string">'Password'</span>: match_ss.group(<span class="number">2</span>),</span><br><span class="line">                          <span class="string">'IPAddress'</span>: match_ss.group(<span class="number">3</span>),</span><br><span class="line">                          <span class="string">'Port'</span>: match_ss.group(<span class="number">4</span>)&#125;</span><br><span class="line">        <span class="keyword">with</span> open(<span class="string">"./ss_info.json"</span>, <span class="string">'w'</span>) <span class="keyword">as</span> dump_f:</span><br><span class="line">            json.dump(ssinfo_dict, dump_f)</span><br></pre></td></tr></table></figure>
+<p>解析完正则匹配下并将无效的和V2RAY账号去除,保存为json文件</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"ishadowx0"</span>: &#123;</span><br><span class="line">    <span class="attr">"Encryption"</span>: <span class="string">"aes-256-cfb"</span>,</span><br><span class="line">    <span class="attr">"Password"</span>: <span class="string">"isx.yt-42718379"</span>,</span><br><span class="line">    <span class="attr">"IPAddress"</span>: <span class="string">"a.isxb.top"</span>,</span><br><span class="line">    <span class="attr">"Port"</span>: <span class="string">"19653"</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">"ishadowx1"</span>: &#123;</span><br><span class="line">    <span class="attr">"Encryption"</span>: <span class="string">"aes-256-cfb"</span>,</span><br><span class="line">    <span class="attr">"Password"</span>: <span class="string">"isx.yt-72244415"</span>,</span><br><span class="line">    <span class="attr">"IPAddress"</span>: <span class="string">"b.isxb.top"</span>,</span><br><span class="line">    <span class="attr">"Port"</span>: <span class="string">"19123"</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">"ishadowx2"</span>: &#123;</span><br><span class="line">    <span class="attr">"Encryption"</span>: <span class="string">"aes-256-cfb"</span>,</span><br><span class="line">    <span class="attr">"Password"</span>: <span class="string">"isx.yt-78052313"</span>,</span><br><span class="line">    <span class="attr">"IPAddress"</span>: <span class="string">"c.isxb.top"</span>,</span><br><span class="line">    <span class="attr">"Port"</span>: <span class="string">"16674"</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">"ishadowx6"</span>: &#123;</span><br><span class="line">    <span class="attr">"Encryption"</span>: <span class="string">"aes-256-cfb"</span>,</span><br><span class="line">    <span class="attr">"Password"</span>: <span class="string">"isx.yt-20033150"</span>,</span><br><span class="line">    <span class="attr">"IPAddress"</span>: <span class="string">"a.isxc.top"</span>,</span><br><span class="line">    <span class="attr">"Port"</span>: <span class="string">"12188"</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">"ishadowx7"</span>: &#123;</span><br><span class="line">    <span class="attr">"Encryption"</span>: <span class="string">"aes-256-cfb"</span>,</span><br><span class="line">    <span class="attr">"Password"</span>: <span class="string">"isx.yt-64523084"</span>,</span><br><span class="line">    <span class="attr">"IPAddress"</span>: <span class="string">"b.isxc.top"</span>,</span><br><span class="line">    <span class="attr">"Port"</span>: <span class="string">"19325"</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">"ishadowx8"</span>: &#123;</span><br><span class="line">    <span class="attr">"Encryption"</span>: <span class="string">"aes-256-cfb"</span>,</span><br><span class="line">    <span class="attr">"Password"</span>: <span class="string">"isx.yt-87175261"</span>,</span><br><span class="line">    <span class="attr">"IPAddress"</span>: <span class="string">"c.isxc.top"</span>,</span><br><span class="line">    <span class="attr">"Port"</span>: <span class="string">"11234"</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1>添加到Clash配置文件中去(yaml)</h1>
+<p>提前讲一下,yaml库已经停止更新并且对于我来说不能满足我的要求(不能按照我写的json中的顺序生成yaml文件),所以我选择用oyaml库.</p>
+<p>yaml语言教程:<a href="https://www.ruanyifeng.com/blog/2016/07/yaml.html" target="_blank" rel="noopener">阮一峰的网络日志</a></p>
+<p>oyaml使用方法:<a href="https://yaml.readthedocs.io/en/latest/overview.html" target="_blank" rel="noopener">ruamel.yaml文档</a></p>
+<p>clash配置感兴趣可以自行查阅</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 将json中的ss信息转换为clash的配置文件(yml格式)</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">add_to_clash</span><span class="params">(yml_url)</span>:</span></span><br><span class="line">    <span class="keyword">with</span> open(yml_url, <span class="string">'r'</span>, encoding=<span class="string">'utf-8'</span>) <span class="keyword">as</span> yaml_file:</span><br><span class="line">        yaml_obj = yaml.safe_load(yaml_file.read())</span><br><span class="line">    yaml_obj[<span class="string">'Proxy'</span>] = []</span><br><span class="line">    yaml_obj[<span class="string">'Proxy Group'</span>] = [</span><br><span class="line">        &#123;<span class="string">'name'</span>:<span class="string">'Free-ishadowx-节点选择'</span>,<span class="string">'type'</span>: <span class="string">'select'</span>,<span class="string">'proxies'</span>:[<span class="string">'Free-ishadowx-自动切换'</span>,<span class="string">'Free-ishadowx-手动切换'</span>]&#125;,</span><br><span class="line">        &#123;<span class="string">'name'</span>: <span class="string">'Free-ishadowx-自动切换'</span>, <span class="string">'type'</span>: <span class="string">'url-test'</span>, <span class="string">'url'</span>: <span class="string">'http://www.gstatic.com/generate_204'</span>,</span><br><span class="line">         <span class="string">'interval'</span>: <span class="string">'300'</span>&#125;,</span><br><span class="line">        &#123;<span class="string">'name'</span>: <span class="string">'Free-ishadowx-手动切换'</span>, <span class="string">'type'</span>: <span class="string">'select'</span>&#125;]</span><br><span class="line">    proxies = []</span><br><span class="line">    <span class="keyword">with</span> open(<span class="string">"./ss_info.json"</span>, <span class="string">'r'</span>) <span class="keyword">as</span> load_f:</span><br><span class="line">        ssinfo_dict = json.load(load_f)</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> ssinfo_dict:</span><br><span class="line">            yaml_obj[<span class="string">'Proxy'</span>].append(</span><br><span class="line">                &#123;<span class="string">'name'</span>: i, <span class="string">'type'</span>: <span class="string">'ss'</span>, <span class="string">'server'</span>: ssinfo_dict[i][<span class="string">'IPAddress'</span>], <span class="string">'port'</span>: ssinfo_dict[i][<span class="string">'Port'</span>],</span><br><span class="line">                 <span class="string">'cipher'</span>: ssinfo_dict[i][<span class="string">'Encryption'</span>], <span class="string">'password'</span>: ssinfo_dict[i][<span class="string">'Password'</span>]&#125;)</span><br><span class="line">            proxies.append(i)</span><br><span class="line">    yaml_obj[<span class="string">'Proxy Group'</span>][<span class="number">1</span>][<span class="string">'proxies'</span>] = proxies</span><br><span class="line">    yaml_obj[<span class="string">'Proxy Group'</span>][<span class="number">2</span>][<span class="string">'proxies'</span>] = proxies</span><br><span class="line">    <span class="keyword">with</span> open(yml_url, <span class="string">'w'</span>, encoding=<span class="string">'utf-8'</span>) <span class="keyword">as</span> yaml_file:</span><br><span class="line">        yaml.safe_dump(yaml_obj, yaml_file, allow_unicode=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
+<p>我这里将节点导入后分为两组,一组手动选择,一组自动选择,yml_url为你使用的yml配置文件的路径</p>
+<h1>最终效果</h1>
+<p><img src="/images/%5BPython%5D%E7%88%AC%E8%99%AB-%E7%88%AC%E5%8F%96%E5%85%8D%E8%B4%B9SS%E8%B4%A6%E5%8F%B7%E6%B7%BB%E5%8A%A0%E5%88%B0Clash%E4%B8%AD/clash.png" alt="upload successful">
+速度和稳定性都不行,我还是乖乖换回机场吧🤷‍♂️</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    K
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://zebra233.github.io/2020/01/22/ython-爬虫-爬取免费SS账号添加到Clash中/" title="[Python]爬虫-爬取免费SS账号添加到Clash中">https://zebra233.github.io/2020/01/22/ython-爬虫-爬取免费SS账号添加到Clash中/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/爬虫/" rel="tag"># 爬虫</a>
+          
+            <a href="/tags/Python/" rel="tag"># Python</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/12/13/Flask-Flask前后端数据交互/" rel="next" title="[Flask]Flask前后端数据交互">
+                <i class="fa fa-chevron-left"></i> [Flask]Flask前后端数据交互
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">K</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">分类</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+            <div class="cc-license motion-element" itemprop="license">
+              <a href="https://creativecommons.org/licenses/by/4.0/" class="cc-opacity" target="_blank">
+                <img src="/images/cc-by.svg" alt="Creative Commons">
+              </a>
+            </div>
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-text">网站、工具和用到的python库</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-text">爬虫基本思路</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#获取二维码"><span class="nav-text">获取二维码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解析二维码"><span class="nav-text">解析二维码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#base64解析"><span class="nav-text">BASE64解析</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-text">添加到Clash配置文件中去(yaml)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-text">最终效果</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        
+<div class="copyright">&copy; 2019 &mdash; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">K</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://<your-shortname>.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'https://zebra233.github.io/2020/01/22/ython-爬虫-爬取免费SS账号添加到Clash中/';
+          this.page.identifier = '2020/01/22/ython-爬虫-爬取免费SS账号添加到Clash中/';
+          this.page.title = '[Python]爬虫-爬取免费SS账号添加到Clash中';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://<your-shortname>.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
