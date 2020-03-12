@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[[Linux]Ubuntu重启后eth消失]]></title>
+    <url>%2F2020%2F03%2F12%2Finux-Ubuntu%E9%87%8D%E5%90%AF%E5%90%8Eeth%E6%B6%88%E5%A4%B1%2F</url>
+    <content type="text"><![CDATA[Ubuntu 18.04 ifconfig发现其它网卡存在但是eth消失了 解决办法: 删除旧的网络配置，重新让networkmanager自动配置即可 输入命令: 123sudo service network-manager stop sudo rm /var/lib/NetworkManager/NetworkManager.state sudo service network-manager start 参考:问题：在Ubantu系统下，输入ifconfig只有lo，没有eth0,(已解决)]]></content>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[[Linux]Linux软链接后无法执行]]></title>
     <url>%2F2020%2F03%2F07%2Finux-Linux%E8%BD%AF%E9%93%BE%E6%8E%A5%E5%90%8E%E6%97%A0%E6%B3%95%E6%89%A7%E8%A1%8C%2F</url>
     <content type="text"><![CDATA[执行操作 12# root @ XXX in ~/filerun/user-files/Dokcerfiles [18:31:05] C:1$ ln -s ./updateConfig.sh ~/sh/clash-config-update.sh 回到软链接的目录下 12345678# root @ XXX in ~/sh [18:35:31] $ latotal 0lrwxrwxrwx 1 root root 17 Mar 7 18:32 clash-config-update.sh -&gt; ./updateConfig.sh# root @ XXX in ~/sh [18:31:56] $ ./clash-config-update.sh zsh: no such file or directory: ./clash-config-update.sh 发现存在该文件,但是一运行就找不到这个文件了 问题的原因是:在生成软链接时源文件使用了相对路径 .使用绝对路径就不会发生这种情况 12# root @ XXX in ~/filerun/user-files/Dokcerfiles [18:45:44] $ ln -s $(pwd)/updateConfig.sh ~/sh/clash-config-update.sh 在回到软链接目录下 1234# root @ XXX in ~/sh [18:45:57] $ latotal 0lrwxrwxrwx 1 root root 52 Mar 7 18:46 clash-config-update.sh -&gt; /root/filerun/user-files/Dokcerfiles/updateConfig.sh 在shell中可以看出第一次la的输出与这一次la的输出高亮的颜色明显不同,从这也可以判断链接是否正常 参考:Linux ln创建软连接之后无法使用，无法whereis-segmentfault]]></content>
@@ -191,8 +199,8 @@
         <category>渗透学习</category>
       </categories>
       <tags>
-        <tag>渗透</tag>
         <tag>实战演习</tag>
+        <tag>渗透</tag>
       </tags>
   </entry>
   <entry>
@@ -203,8 +211,8 @@
         <category>渗透学习</category>
       </categories>
       <tags>
-        <tag>学习</tag>
         <tag>渗透</tag>
+        <tag>学习</tag>
       </tags>
   </entry>
 </search>
