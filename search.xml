@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[软件集散中心]]></title>
+    <url>%2F2020%2F03%2F26%2F%E4%BB%B6%E9%9B%86%E6%95%A3%E4%B8%AD%E5%BF%83%2F</url>
+    <content type="text"><![CDATA[用OneDrive下载各种软件 软件集散中心 MatLab 安装指南 Adobe 甚至有考研资料|视频 出处COCO56]]></content>
+  </entry>
+  <entry>
     <title><![CDATA[[Linux]Ubuntu重启后eth消失]]></title>
     <url>%2F2020%2F03%2F12%2Finux-Ubuntu%E9%87%8D%E5%90%AF%E5%90%8Eeth%E6%B6%88%E5%A4%B1%2F</url>
     <content type="text"><![CDATA[Ubuntu 18.04 ifconfig发现其它网卡存在但是eth消失了 解决办法: 删除旧的网络配置，重新让networkmanager自动配置即可 输入命令: 123sudo service network-manager stop sudo rm /var/lib/NetworkManager/NetworkManager.state sudo service network-manager start 参考:问题：在Ubantu系统下，输入ifconfig只有lo，没有eth0,(已解决)]]></content>
