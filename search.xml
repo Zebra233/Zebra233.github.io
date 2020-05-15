@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[[CMake]C++找不到]]></title>
+    <url>%2F2020%2F05%2F15%2FMake-C-%E6%89%BE%E4%B8%8D%E5%88%B0-iostream%2F</url>
+    <content type="text"><![CDATA[创建项目后,创建了一个C文件,一切正常 在创建C++文件后,提示无法找到iostream 123456cmake_minimum_required(VERSION 3.15)project(Structure C)set(CMAKE_C_STANDARD 99)add_executable(Structure calculate.c LinearList/sequenceList.cpp) 将project(Structure C)改为project(Structure)即可恢复]]></content>
+      <categories>
+        <category>CMake</category>
+      </categories>
+      <tags>
+        <tag>CMake</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[软件集散中心]]></title>
     <url>%2F2020%2F03%2F26%2F%E4%BB%B6%E9%9B%86%E6%95%A3%E4%B8%AD%E5%BF%83%2F</url>
     <content type="text"><![CDATA[用OneDrive下载各种软件 软件集散中心 MatLab 安装指南 Adobe 甚至有考研资料|视频 出处COCO56]]></content>
@@ -204,8 +215,8 @@
         <category>渗透学习</category>
       </categories>
       <tags>
-        <tag>实战演习</tag>
         <tag>渗透</tag>
+        <tag>实战演习</tag>
       </tags>
   </entry>
   <entry>
@@ -216,8 +227,8 @@
         <category>渗透学习</category>
       </categories>
       <tags>
-        <tag>渗透</tag>
         <tag>学习</tag>
+        <tag>渗透</tag>
       </tags>
   </entry>
 </search>
